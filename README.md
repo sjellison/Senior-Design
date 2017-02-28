@@ -1,0 +1,1 @@
+TODO: write read me, add actualy NN code. All that is here is training data and classifier program
