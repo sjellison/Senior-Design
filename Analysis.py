@@ -17,6 +17,10 @@ THINGS TO GET FROM THE DATABASE
 
 
 from AutonomousProcessor.Network import getList
+#import MySQLdb
+
+#database = MySQLdb.connect("localhost", "user", "password", "DatabaseName")
+#dbcursor = database.cursor()
 
 '''
 Returns a list of data for every object returned by getList()
@@ -33,7 +37,7 @@ return - an array of data for every object. data is in the form: object name1, d
 def getData(list):
     data = {}
     datacounter = 0
-    for i in range(len(list)/5):
+    for i in range(int(len(list)/5)):
         obName = list[i]
         x = list[i + 1]
         y = list[i + 2]
@@ -74,9 +78,22 @@ Determines the distance to the object
 def getDistance(name, width):
     #TODO
     #Need a database query to get the objectwidth
-    #Need to calculate the focallength
-    return ((focallength * objectwidth) / width)
+    #Need to test the database query
+    
+    query = "SELECT objectwidth FROM OBJECTS \
+             WHERE NAME == '%s'" % (name)
+             
+    try:
+        #dbcursor.execute(query)
+        #result = dbcursor.fetch()
+        #objectwidth = result
+        objectwidth = 3.75 #meters
+        focallength = .0036 #meters
+        
+        return ((focallength * objectwidth) / width)
 
+    except:
+        print("Error: Could not fetch data")
 
 '''
 Calculates the focal length for the camera given the object's actual width, number of pixels wide the object is in the image,
