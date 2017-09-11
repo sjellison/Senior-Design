@@ -16,11 +16,12 @@ THINGS TO GET FROM THE DATABASE
 '''
 
 
-from AutonomousProcessor.Network import getList
-#import MySQLdb
+from ..network.Network import getList
+import MySQLdb
 
 #database = MySQLdb.connect("localhost", "user", "password", "DatabaseName")
-#dbcursor = database.cursor()
+database = MySQLdb.connect("localhost", "analysis", "dec1710", "ObjectInformation")
+dbcursor = database.cursor()
 
 '''
 Returns a list of data for every object returned by getList()
@@ -80,16 +81,14 @@ def getDistance(name, width):
     #Need a database query to get the objectwidth
     #Need to test the database query
     
-    query = "SELECT objectwidth FROM OBJECTS \
-             WHERE NAME == '%s'" % (name)
+    query = "SELECT width FROM objects WHERE name == '%s'" % (name)
              
     try:
-        #dbcursor.execute(query)
-        #result = dbcursor.fetch()
-        #objectwidth = result
-        objectwidth = 3.75 #meters
+        dbcursor.execute(query)
+        objectwidth = dbcursor[width]
+        #objectwidth = 3.75 #meters
         focallength = .0036 #meters
-        
+        dbcursor.close()
         return ((focallength * objectwidth) / width)
 
     except:
