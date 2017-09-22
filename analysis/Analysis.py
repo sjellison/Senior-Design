@@ -78,7 +78,6 @@ Determines the distance to the object
 ''' 
 def getDistance(name, width):
     #TODO
-    #Need a database query to get the objectwidth
     #Need to test the database query
     
     query = "SELECT width FROM objects WHERE name == '%s'" % (name)

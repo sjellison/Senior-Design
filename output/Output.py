@@ -7,6 +7,11 @@ Created on Sep 6, 2017
 #import bluetooth
 import serial
 
+def outputData(data):
+    for _ in data:
+        print(_)
+
+'''
 port = None
 def usart_init():
     #need to figure out all these parts
@@ -18,7 +23,7 @@ def usart_write(data):
         return
 
     port.write(data) #writes 1 character at a time
-  
+'''
 '''      
 def bluetooth_init():
     serverMACAddress = '' #tbd
