@@ -16,7 +16,7 @@ THINGS TO GET FROM THE DATABASE
 '''
 
 
-from ..network.Network import getList
+#from ..network.Network import getList
 import MySQLdb
 
 #database = MySQLdb.connect("localhost", "user", "password", "DatabaseName")
