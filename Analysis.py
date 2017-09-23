@@ -31,7 +31,7 @@ return - an array of data for every object. data is in the form: object name1, d
 def getData(list):
     data = {}
     datacounter = 0
-    for i in range((len(list)/5)):
+    for i in range(len(list) / 5):
         obName = list[i]
         x = list[i + 1]
         y = list[i + 2]
