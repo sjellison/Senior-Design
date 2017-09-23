@@ -31,12 +31,12 @@ return - an array of data for every object. data is in the form: object name1, d
 def getData(list):
     data = {}
     datacounter = 0
-    for i in range(len(list) / 5):
-        obName = list[i]
-        x = list[i + 1]
-        y = list[i + 2]
-        width = list[i + 3]
-        height = list[i + 4]
+    for a, b, c, d, e in list:
+        obName = list[a]
+        x = list[b]
+        y = list[c]
+        width = list[d]
+        height = list[e]
         
         #object name, data type, related data, data type..., related data..., object name...
         data[datacounter] = obName
