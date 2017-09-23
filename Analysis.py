@@ -24,13 +24,6 @@ database = MySQLdb.connect("localhost", "analysis", "dec1710", "Objects")
 dbcursor = database.cursor()
 
 '''
-Returns a list of data for every object returned by getList()
-'''
-def getDataFromNetwork():
-    networkData = getList()
-    return getData(networkData)
-
-'''
 Returns a list of data for every object in the list. Assumes a strict data formating.
 list - the list of objects. data must be in the form: name, xpos, ypos, width, height
 return - an array of data for every object. data is in the form: object name1, data type1, related data, data type2..., object name2...
@@ -38,7 +31,7 @@ return - an array of data for every object. data is in the form: object name1, d
 def getData(list):
     data = {}
     datacounter = 0
-    for i in range(int(len(list)/5)):
+    for i in range((len(list)/5)):
         obName = list[i]
         x = list[i + 1]
         y = list[i + 2]
