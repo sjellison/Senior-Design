@@ -20,44 +20,52 @@ THINGS TO GET FROM THE DATABASE
 import MySQLdb
 
 #database = MySQLdb.connect("localhost", "user", "password", "DatabaseName")
-database = MySQLdb.connect("localhost", "analysis", "dec1710", "Objects")
-dbcursor = database.cursor()
+#database = MySQLdb.connect("localhost", "analysis", "dec1710", "Objects")
+#dbcursor = database.cursor()
 
 '''
 Returns a list of data for every object in the list. Assumes a strict data formating.
 list - the list of objects. data must be in the form: name, xpos, ypos, width, height
 return - an array of data for every object. data is in the form: object name1, data type1, related data, data type2..., object name2...
 '''
-def getData(list):
+def getData(*list):
     data = {}
     datacounter = 0
-    for a, b, c, d, e in list:
-        obName = list[a]
-        x = list[b]
-        y = list[c]
-        width = list[d]
-        height = list[e]
-        
-        #object name, data type, related data, data type..., related data..., object name...
-        data[datacounter] = obName
-        datacounter = datacounter + 1
-        
-        data[datacounter] = 'xposition'
-        datacounter = datacounter + 1
-        
-        data[datacounter] = (x + width)/2
-        datacounter = datacounter + 1
-        
-        data[datacounter] = 'yposition'
-        datacounter = datacounter + 1
-        
-        data[datacounter] = (y + height)/2
-        datacounter = datacounter + 1
-        
-        data[datacounter] = 'distance'
-        datacounter = datacounter + 1
-        
-        data[datacounter] = getDistance(obName, width)
+    count = 0
+    for i in list:
+        if(count == 0):
+            obName = i
+        elif(count == 1):
+            x = i
+        elif(count == 2):
+            y = i
+        elif(count == 3):
+            width = i
+        elif(count == 4):
+            height = i
+            
+            #object name, data type, related data, data type..., related data..., object name...
+            data[datacounter] = obName
+            datacounter = datacounter + 1
+            
+            data[datacounter] = 'xposition'
+            datacounter = datacounter + 1
+            
+            data[datacounter] = (x + width)/2
+            datacounter = datacounter + 1
+            
+            data[datacounter] = 'yposition'
+            datacounter = datacounter + 1
+            
+            data[datacounter] = (y + height)/2
+            datacounter = datacounter + 1
+            
+            data[datacounter] = 'distance'
+            datacounter = datacounter + 1
+            
+            data[datacounter] = getDistance(obName, width)
+            
+        count = (count + 1) % 5
         
     return data
     
@@ -74,7 +82,7 @@ def getDistance(name, width):
     #Need to test the database query
     
     query = "SELECT width FROM objects WHERE name == '%s'" % (name)
-             
+    '''
     try:
         dbcursor.execute(query)
         objectwidth = dbcursor[width]
@@ -85,7 +93,7 @@ def getDistance(name, width):
 
     except:
         print("Error: Could not fetch data")
-
+    '''
 '''
 Calculates the focal length for the camera given the object's actual width, number of pixels wide the object is in the image,
 and distance to the object. The objectwidth and distance must be in the same units for accurate results. Focal length will
