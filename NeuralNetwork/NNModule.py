@@ -13,11 +13,25 @@
 #     wait 1 second
 
 
-# When we are called, we will do the following
-
-#Constructor:
-#   Initialize the NN, set up any variables
-
-
-#def analyze(img):
-#   This runs the analysis code from example
+# class outline
+# class NNModule:
+#     def __init__(self):
+#       Initialize the NN, set up any variables
+#
+#
+#     def analyze(img):
+#       Input:  img=opencv2.imread() formatted image
+#       Output:
+#       This runs the analysis code from example
+#       This method will determine what object(s) are present in an image.
+#       Once anaylsis is complete, output data
+#
+#
+#     def drawbox_on_found_object(img, object_data):
+#       This class will export the data
+#
+#     def img_out(img, highlighting):
+#       Outputs the image, will draw a box around the found target if highlighting is true
+#
+#     def output(data):
+#       This method will output statistical data as needed to the next stage
