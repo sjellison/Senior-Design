@@ -16,12 +16,11 @@ THINGS TO GET FROM THE DATABASE
 '''
 
 
-#from ..network.Network import getList
 import MySQLdb
 
-#database = MySQLdb.connect("localhost", "user", "password", "DatabaseName")
-#database = MySQLdb.connect("localhost", "analysis", "dec1710", "Objects")
-#dbcursor = database.cursor()
+database = MySQLdb.connect("localhost", "user", "password", "DatabaseName")
+database = MySQLdb.connect("localhost", "analysis", "dec1710", "Objects")
+dbcursor = database.cursor()
 
 '''
 Returns a list of data for every object in the list. Assumes a strict data formating.
@@ -82,7 +81,7 @@ def getDistance(name, width):
     #Need to test the database query
     
     query = "SELECT width FROM objects WHERE name == '%s'" % (name)
-    '''
+
     try:
         dbcursor.execute(query)
         objectwidth = dbcursor[width]
@@ -93,7 +92,7 @@ def getDistance(name, width):
 
     except:
         print("Error: Could not fetch data")
-    '''
+   
 '''
 Calculates the focal length for the camera given the object's actual width, number of pixels wide the object is in the image,
 and distance to the object. The objectwidth and distance must be in the same units for accurate results. Focal length will
