@@ -19,4 +19,6 @@ if __name__ == '__main__':
     analysis = getData(l)
     out = outputData(analysis)
     
+    print(out)
+    
     pass

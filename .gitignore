@@ -35,4 +35,8 @@ Other Ignores
 ################################
 ./__init__.py
 ./Network.py
+./getFrame.py
+./main.py
+./Output.py
+./__pycache__
 ./config
