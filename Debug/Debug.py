@@ -30,19 +30,18 @@ resTextBox.pack(side="bottom")
 dataFrame.pack(side="right", fill="both", expand="yes", pady=10)
 
 '''
-def init(w, h):
-    global root, imageWidth, imageHeight
-    imageWidth = w
-    imageHeight = h
-    root.mainloop()
+Converts a path to an image
+return: a PhotoImage
 '''
-
 def strtoimg(string):
     img = Image.open(string)
     img = img.resize((200, 175), Image.ANTIALIAS)
     photo = ImageTk.PhotoImage(img)
     return photo
 
+'''
+Replaces the image in the image frame with the given image
+'''
 def updateImage(img):
     global imageLabel, root
     
@@ -50,12 +49,18 @@ def updateImage(img):
     imageLabel.image = img
     root.update()
 
+'''
+Appends the given text to the end of the network text field
+'''
 def insertNetText(text):
     global netTextBox
     netTextBox.insert(INSERT, text) #adds new text to what's there
     netTextBox.pack
     root.update()
 
+'''
+Replaces the text in the network text field with the given text
+'''
 def updateNetText(data):
     global netTextBox
     netTextBox.delete("1.0", END)
@@ -63,19 +68,34 @@ def updateNetText(data):
     netTextBox.pack
     root.update()
     
+'''
+Appends the given text to the end of the results text field
+'''
+def insertResText(text):
+    global resTextBox
+    resTextBox.insert(INSERT, text)
+    resTextBox.pack
+    root.update()
+    
+'''
+Replaces the text in the results text field with the given text
+'''
 def updateResText(result):
     global resTextBox
+    resTextBox.delete("1.0", END)
     resTextBox.insert(INSERT, result)
     resTextBox.pack
     root.update()
     
+'''
+Updates the window. Shouldn't need to be called, but it's there if the need arises.
+'''
 def updateWindow():
     root.update()
-    
-#def updateData():
- #   global root
-  #  root.event_generate(sequence)
 
+'''
+Runs if this file is run as a main file. Used for debugging.
+'''
 if(__name__ == '__main__'):
     for i in range(15):
         newText1 = "New Net Stuff" + str(i)
