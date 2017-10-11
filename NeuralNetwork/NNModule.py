@@ -35,3 +35,24 @@
 #
 #     def output(data):
 #       This method will output statistical data as needed to the next stage
+
+
+class NNModule:
+    def __init__(self):
+        # Initialize the NN, set up any variables
+        print "Constructor here"
+
+    def analyze(self, img):
+        print "Take in image, classify with NN"
+
+    def drawbox_on_found_objects(self, img, object_data):
+        print "Draw a box on img!"
+
+    def img_out(self, imt, highlighting):
+        if highlighting:
+            print "Highlighting disabled"
+        else:
+            print "Highlighting enabled"
+
+    def output(self,data):
+        print "This is where output data will occur"
