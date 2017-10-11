@@ -19,7 +19,7 @@ THINGS TO GET FROM THE DATABASE
 import MySQLdb
 
 database = MySQLdb.connect("localhost", "user", "password", "DatabaseName")
-database = MySQLdb.connect("localhost", "analysis", "dec1710", "Objects")
+database = MySQLdb.connect("localhost", "analysis", "Dec_1710", "Objects")
 dbcursor = database.cursor()
 
 '''
@@ -27,11 +27,11 @@ Returns a list of data for every object in the list. Assumes a strict data forma
 list - the list of objects. data must be in the form: name, xpos, ypos, width, height
 return - an array of data for every object. data is in the form: object name1, data type1, related data, data type2..., object name2...
 '''
-def getData(*list):
+def getData(*dataList):
     data = {}
     datacounter = 0
     count = 0
-    for i in list:
+    for i in dataList:
         if(count == 0):
             obName = i
         elif(count == 1):
@@ -80,7 +80,7 @@ def getDistance(name, width):
     #TODO
     #Need to test the database query
     
-    query = "SELECT width FROM objects WHERE name == '%s'" % (name)
+    query = "SELECT width FROM Objects WHERE name == '%s'" % (name)
 
     try:
         dbcursor.execute(query)
