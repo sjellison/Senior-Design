@@ -1,8 +1,4 @@
-'''
-Created on Oct 8, 2017
 
-@author: bebop
-'''
 from tkinter import *
 import threading
 import time
