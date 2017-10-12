@@ -18,7 +18,6 @@ THINGS TO GET FROM THE DATABASE
 
 import MySQLdb
 
-database = MySQLdb.connect("localhost", "user", "password", "DatabaseName")
 database = MySQLdb.connect("localhost", "analysis", "Dec_1710", "Objects")
 dbcursor = database.cursor()
 
