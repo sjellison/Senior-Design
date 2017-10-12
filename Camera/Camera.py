@@ -7,24 +7,29 @@ Get image and convert RGB to GrayScale
 import cv2
 
 cameraPort = 0;
-camera = cv2.VideoCapture(cameraPort); 
+camera = cv2.VideoCapture(cameraPort);
 
-#capture a image
 def get_image():
-    global im 
     retval, im = camera.read()
     return im
+    
 
 #convert to grayScale
-def convert():
-    image = cv2.imread(im)
-    gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    cv2.imwrite('gray_image.png', gray_image)
-    cv2.imshow('gray_image', gray_image)
-    cv2.waitKey(0)
-    cv2.destroyAllWindows()
+def convert(im):
+    if retval:
+        gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        return gray_image
 
-del(camera)
+def test():
+    im = get_image()
+    cv2.namedWindow("cam-test", cv2.WINDOW_AUTOSIZE)
+    cv2.imshow("cam-test", im)
+    cv2.waitKey(1000)
+    cv2.destroWindow("cam-test")
+
+if __name__ == "__main__":
+    test()
+
 
 
     
