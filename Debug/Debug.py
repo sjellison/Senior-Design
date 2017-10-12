@@ -1,6 +1,6 @@
 
-from tkinter import *
-import threading
+#from tkinter import * #this is for Python3
+from Tkinter import *
 import time
 from PIL import Image, ImageTk
 
