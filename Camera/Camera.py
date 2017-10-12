@@ -6,8 +6,8 @@ Get image and convert RGB to GrayScale
 '''
 import cv2
 
-cameraPort = 0;
-camera = cv2.VideoCapture(cameraPort);
+#cameraPort = 0;
+camera = cv2.VideoCapture("video.mp4");
 
 def get_image():
     retval, im = camera.read()
