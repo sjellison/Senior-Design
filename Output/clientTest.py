@@ -1,7 +1,8 @@
 
 import socket, pickle
 
-host = "tx1-dec1710.student.iastate.edu"
+host = socket.gethostname()
+#host = "tx1-dec1710.student.iastate.edu"
 print(host)
 port = 4500
 if __name__ == '__main__':
