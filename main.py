@@ -35,7 +35,7 @@ if __name__ == '__main__':
         result = an.getData(list)
         if(debug):
             print("--Printing Results--")
-            print(_)
+            print(results)
             #for _ in result:
             #    print(_)
 #            out.out(result)
