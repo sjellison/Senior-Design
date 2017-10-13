@@ -11,7 +11,7 @@ def getList(frame):
     
     for i in range(10):
 #        print("Network: " + str(i))
-        name = "Ob" + str(i)
+        name = "airport"
 #        print("Network: " + name)
         xpos = random.randint(0, 255)
 #        print("Network: " + str(xpos))
