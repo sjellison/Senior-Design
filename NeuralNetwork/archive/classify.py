@@ -1,3 +1,4 @@
+# Source: https://github.com/llSourcell/tensorflow_image_classifier/blob/master/src/label_image.py
 import tensorflow as tf
 import sys
 
