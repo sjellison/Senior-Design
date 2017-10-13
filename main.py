@@ -2,6 +2,7 @@
 import Analysis.Analysis as an
 import Output.Output as out
 import Network.Network as net
+import NeuralNetwork.NNModule as nn
 import Camera.Camera as cam
 #import Debug.Debug as deb
 import sys
@@ -13,8 +14,9 @@ if __name__ == '__main__':
         if(str.lower(sys.argv[1]) == "debug"):
             print("--Setting mode to Debug--")
             debug = True
-        
-    print("Initializing cam")    
+     
+    if(debug):
+        print("Initializing cam")    
     cam.init("video.mp4")
 #    out.init()
 #    if(debug):
@@ -22,18 +24,22 @@ if __name__ == '__main__':
     
     while(True):
 #        try:
-        print("Getting frame from cam")
+        if(debug):
+            print("Getting frame from cam")
         frame = cam.get_image()
-        print("Getting List from Network")
+        if(debug):
+            print("Getting List from Network")
         list = net.getList(frame)
-        print("Getting result from analysis")
+        if(debug):
+            print("Getting result from analysis")
         result = an.getData(list)
-        
-        print("--Printing Results--")
+        if(debug):
+            print("--Printing Results--")
         for _ in result:
             print(_)
 #            out.out(result)
-        print("--------------------")
+        if(debug):
+            print("--------------------")
             
 #        if(debug):
 #           deb.printToTerm(result)
