@@ -98,7 +98,7 @@ def getDistance(name, width):
     if(debug):
         print("Executing query...")
     dbcursor.execute(query)
-    objectwidth = dbcursor.fetchone()
+    objectwidth = dbcursor.fetchone()[0]
     if(debug):
         print("Query result: " + str(objectwidth))
     #objectwidth = 3.75 #meters
