@@ -3,7 +3,7 @@ import Analysis.Analysis as an
 import Output.Output as out
 import Network.Network as net
 import Camera.Camera as cam
-import Debug.Debug as deb
+#import Debug.Debug as deb
 import sys
 
 debug = False
@@ -25,8 +25,8 @@ if __name__ == '__main__':
         result = an.getData(list)
 #            out.out(result)
             
-        if(debug):
-            deb.printToTerm(result)
+#        if(debug):
+#            deb.printToTerm(result)
 #            deb.updateImage(frame)
 #           deb.updateNetText(list)
 #           deb.updateResText(result)
