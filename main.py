@@ -13,15 +13,16 @@ if __name__ == '__main__':
 #        if(str.lower(sys.argv[1]) == "debug"):
 #            debug = True
         
+    cam.init("video.mp4")
 #    out.init()
 #    if(debug):
 #        deb.init()
     
     while(True):
-        try:
-            frame = cam.getFrame()
-            list = net.getList(frame)
-            result = an.getData(list)
+#        try:
+        frame = cam.getFrame()
+        list = net.getList(frame)
+        result = an.getData(list)
 #            out.out(result)
             
 #            if(debug):
@@ -29,6 +30,6 @@ if __name__ == '__main__':
 #                deb.updateNetText(list)
 #                deb.updateResText(result)
                 
-        finally:
+#        finally:
 #            out.close()
 
