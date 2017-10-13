@@ -14,10 +14,10 @@ Returns a list of data for every object in the list. Assumes a strict data forma
 list - the list of objects. data must be in the form: name, xpos, ypos, width, height
 return - an array of data for every object. data is in the form: object name1, data type1, related data, data type2..., object name2...
 '''
-def getData(*dataList):
+def getData(dataList=[]
     #data = {}
     data = []
-    datacounter = 0
+    #datacounter = 0
     count = 0
     for i in dataList:
         if(count == 0):
@@ -33,7 +33,7 @@ def getData(*dataList):
             
             #object name, data type, related data, data type..., related data..., object name...
             #data[datacounter] = obName
-            data.append(oBName)
+            data.append(obName)
             #datacounter = datacounter + 1
             
             #data[datacounter] = 'xposition'
@@ -72,8 +72,6 @@ Determines the distance to the object
   return - the distance to the object. units of measurement are dependent on the focal length and objectwidth units
 ''' 
 def getDistance(name, width):
-    #TODO
-    #Need to test the database query
     
     query = "SELECT width FROM Objects WHERE name == '%s'" % (name)
 
