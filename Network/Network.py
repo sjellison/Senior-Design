@@ -16,10 +16,16 @@ def getList(frame):
         width = random.randint(1, 200)
         height = random.randint(1, 200)
         
-        ret[(i*5)] = name
-        ret[(i*5) + 1] = xpos
-        ret[(i*5) + 2] = ypos
-        ret[(i*5) + 3] = width
-        ret[(i*5) + 4] = height
+        #ret[(i*5)] = name
+        #ret[(i*5) + 1] = xpos
+        #ret[(i*5) + 2] = ypos
+        #ret[(i*5) + 3] = width
+        #ret[(i*5) + 4] = height
+        
+        ret.append(name)
+        ret.append(xpos)
+        ret.append(ypos)
+        ret.append(width)
+        ret.append(height)
         
     return ret
