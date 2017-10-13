@@ -20,7 +20,7 @@ if __name__ == '__main__':
     
     while(True):
 #        try:
-        frame = cam.getFrame()
+        frame = cam.get_image()
         list = net.getList(frame)
         result = an.getData(list)
 #            out.out(result)
