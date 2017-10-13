@@ -94,18 +94,18 @@ def getDistance(name, width):
     if(debug):
         print("Query used: " + query)
 
-    #try:
-    if(debug):
-        print("Executing query...")
-    dbcursor.execute(query)
-    objectwidth = dbcursor.fetchone()[0]
-    if(debug):
-        print("Query result: " + str(objectwidth))
-    #objectwidth = 3.75 #meters
-    focallength = .0036 #meters
-    return ((focallength * objectwidth) / width)
+    try:
+        if(debug):
+            print("Executing query...")
+        dbcursor.execute(query)
+        objectwidth = dbcursor.fetchone()[0]
+        if(debug):
+            print("Query result: " + str(objectwidth))
+        #objectwidth = 3.75 #meters
+        focallength = .0036 #meters
+        return ((focallength * objectwidth) / width)
 
-    #except:
+    except:
      #   print("Error: Could not fetch data for " + name)
    
 '''
