@@ -22,7 +22,7 @@ if __name__ == '__main__':
     
     while(True):
 #        try:
-        print("Getting frame come came")
+        print("Getting frame from cam")
         frame = cam.get_image()
         print("Getting List from Network")
         list = net.getList(frame)
@@ -33,6 +33,7 @@ if __name__ == '__main__':
         for _ in result:
             print(_)
 #            out.out(result)
+        print("--------------------")
             
 #        if(debug):
 #           deb.printToTerm(result)
