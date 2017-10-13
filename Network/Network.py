@@ -10,11 +10,17 @@ def getList(frame):
     ret = []
     
     for i in range(10):
+        print("Network: " + str(i))
         name = "Ob" + str(i)
+        print("Network: " + name)
         xpos = random.randint(0, 255)
+        print("Network: " + str(xpos))
         ypos = random.randint(0, 255)
+        print("Network: " + str(ypos))
         width = random.randint(1, 200)
+        print("Network: " + str(width))
         height = random.randint(1, 200)
+        print("Network: " + str(height))
         
         #ret[(i*5)] = name
         #ret[(i*5) + 1] = xpos
