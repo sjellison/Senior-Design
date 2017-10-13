@@ -23,11 +23,14 @@ if __name__ == '__main__':
         frame = cam.get_image()
         list = net.getList(frame)
         result = an.getData(list)
+        
+        for _ in result:
+            print(_)
 #            out.out(result)
             
 #        if(debug):
-#            deb.printToTerm(result)
-#            deb.updateImage(frame)
+#           deb.printToTerm(result)
+#           deb.updateImage(frame)
 #           deb.updateNetText(list)
 #           deb.updateResText(result)
                 
