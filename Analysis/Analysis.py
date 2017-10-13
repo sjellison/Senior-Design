@@ -94,19 +94,19 @@ def getDistance(name, width):
     if(debug):
         print("Query used: " + query)
 
-    try:
-        if(debug):
-            print("Executing query...")
-        dbcursor.execute(query)
-        objectwidth = dbcursor.fetchone()[0]
-        if(debug):
-            print("Query result: " + str(objectwidth))
-        #objectwidth = 3.75 #meters
-        focallength = .0036 #meters
-        return ((focallength * objectwidth) / width)
+    #try:
+    if(debug):
+        print("Executing query...")
+    dbcursor.execute(query)
+    objectwidth = dbcursor.fetchone()[0]
+    if(debug):
+        print("Query result: " + str(objectwidth))
+    #objectwidth = 3.75 #meters
+    focallength = .0036 #meters
+    return ((focallength * objectwidth) / width)
 
-    except:
-        print("Error: Could not fetch data for " + name)
+   # except:
+    #    print("Error: Could not fetch data for " + name)
    
 '''
 Calculates the focal length for the camera given the object's actual width, number of pixels wide the object is in the image,
