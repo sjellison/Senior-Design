@@ -7,23 +7,27 @@ from PIL import Image, ImageTk
 imageWidth = 200
 imageHeight = 175
 
-root = Tk()
-root.title("Debug Window")
-
-mainFrame = Frame(root, width=250, height=200)
-mainFrame.pack()
-
-imageFrame = Frame(mainFrame)
-imageLabel = Label(imageFrame)
-imageLabel.pack()
-imageFrame.pack(side="left", fill="both", expand="yes", pady=10)
-
-dataFrame = Frame(mainFrame)
-netTextBox = Text(dataFrame, width=100, height=10)
-netTextBox.pack(side="top")
-resTextBox = Text(dataFrame, width=100, height=10)
-resTextBox.pack(side="bottom")
-dataFrame.pack(side="right", fill="both", expand="yes", pady=10)
+'''
+Initializes the window to use
+'''
+def init():
+    root = Tk()
+    root.title("Debug Window")
+    
+    mainFrame = Frame(root, width=250, height=200)
+    mainFrame.pack()
+    
+    imageFrame = Frame(mainFrame)
+    imageLabel = Label(imageFrame)
+    imageLabel.pack()
+    imageFrame.pack(side="left", fill="both", expand="yes", pady=10)
+    
+    dataFrame = Frame(mainFrame)
+    netTextBox = Text(dataFrame, width=100, height=10)
+    netTextBox.pack(side="top")
+    resTextBox = Text(dataFrame, width=100, height=10)
+    resTextBox.pack(side="bottom")
+    dataFrame.pack(side="right", fill="both", expand="yes", pady=10)
 
 '''
 Converts a path to an image

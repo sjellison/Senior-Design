@@ -15,8 +15,8 @@ if __name__ == '__main__':
         
     cam.init("video.mp4")
 #    out.init()
-    if(debug):
-        deb.init()
+#    if(debug):
+#        deb.init()
     
     while(True):
 #        try:
