@@ -79,6 +79,8 @@ Determines the distance to the object
 def getDistance(name, width):
     
     query = "SELECT width FROM Objects WHERE name='%s'" % (name)
+    if(debug):
+        print("Query used: " + query)
 
     try:
         dbcursor.execute(query)
