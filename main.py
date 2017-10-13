@@ -9,14 +9,14 @@ import sys
 debug = False
 
 if __name__ == '__main__':
-#    if(len(sys.argv) > 1):
-#        if(str.lower(sys.argv[1]) == "debug"):
-#            debug = True
+    if(len(sys.argv) > 1):
+        if(str.lower(sys.argv[1]) == "debug"):
+            debug = True
         
     cam.init("video.mp4")
 #    out.init()
-#    if(debug):
-#        deb.init()
+    if(debug):
+        deb.init()
     
     while(True):
 #        try:
@@ -25,10 +25,11 @@ if __name__ == '__main__':
         result = an.getData(list)
 #            out.out(result)
             
-#            if(debug):
-#               deb.updateImage(frame)
-#                deb.updateNetText(list)
-#                deb.updateResText(result)
+        if(debug):
+            deb.printToTerm(result)
+            deb.updateImage(frame)
+#           deb.updateNetText(list)
+#           deb.updateResText(result)
                 
 #        finally:
 #            out.close()

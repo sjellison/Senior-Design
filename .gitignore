@@ -1,2 +1,6 @@
 venv/
 __pycache__
+Analysis/__pycache__
+Output/__pycache__
+Camera/__pycache__
+Network/__pycache__
