@@ -11,12 +11,18 @@ dbcursor = database.cursor()
 
 debug = False
 
+'''
+Sets the debug flag to true and prints out some debug results
+'''
 def debug():
     debug = True
     print("Testing database connection...")
     print(dbcursor.execute("SELECT VERSION()"))
     print("Database version: %s" % dbcursor.fetchone())
     print("Database test complete")
+
+def closeDb():
+    dbcursor.close()
 
 '''
 Returns a list of data for every object in the list. Assumes a strict data formating.
@@ -89,13 +95,14 @@ def getDistance(name, width):
         print("Query used: " + query)
 
     try:
-        dbcursor.execute(query)
-        objectwidth = dbcursor.fetchall()
         if(debug):
-            print(dbcursor)
+            print("Executing query...")
+        dbcursor.execute(query)
+        objectwidth = dbcursor.fetchone()
+        if(debug):
+            print("Query result: " + str(objectwidth))
         #objectwidth = 3.75 #meters
         focallength = .0036 #meters
-        dbcursor.close()
         return ((focallength * objectwidth) / width)
 
     except:
