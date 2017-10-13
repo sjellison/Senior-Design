@@ -27,7 +27,7 @@ if __name__ == '__main__':
             
         if(debug):
             deb.printToTerm(result)
-            deb.updateImage(frame)
+#            deb.updateImage(frame)
 #           deb.updateNetText(list)
 #           deb.updateResText(result)
                 
