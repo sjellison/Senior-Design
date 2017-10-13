@@ -4,18 +4,6 @@ Created on Aug 30, 2017
 @author: Sean Jellison
 '''
 
-'''
-THINGS TO PUT IN THE CONFIG FILE
-  Camera Focal Length
-  A list of desired data (distance, orientation, isobject and target for isobject, etc.)
-  Database information
-  
-
-THINGS TO GET FROM THE DATABASE
-  Object width based on the name of the object
-'''
-
-
 import MySQLdb
 
 database = MySQLdb.connect("localhost", "analysis", "Dec_1710", "Objects")
@@ -27,7 +15,8 @@ list - the list of objects. data must be in the form: name, xpos, ypos, width, h
 return - an array of data for every object. data is in the form: object name1, data type1, related data, data type2..., object name2...
 '''
 def getData(*dataList):
-    data = {}
+    #data = {}
+    data = []
     datacounter = 0
     count = 0
     for i in dataList:
@@ -43,25 +32,32 @@ def getData(*dataList):
             height = i
             
             #object name, data type, related data, data type..., related data..., object name...
-            data[datacounter] = obName
-            datacounter = datacounter + 1
+            #data[datacounter] = obName
+            data.append(oBName)
+            #datacounter = datacounter + 1
             
-            data[datacounter] = 'xposition'
-            datacounter = datacounter + 1
+            #data[datacounter] = 'xposition'
+            data.append('xposition')
+            #datacounter = datacounter + 1
             
-            data[datacounter] = (x + width)/2
-            datacounter = datacounter + 1
+            #data[datacounter] = (x + width)/2
+            data.append(x + (width/2))
+            #datacounter = datacounter + 1
             
-            data[datacounter] = 'yposition'
-            datacounter = datacounter + 1
+            #data[datacounter] = 'yposition'
+            data.append('yposition')
+            #datacounter = datacounter + 1
             
-            data[datacounter] = (y + height)/2
-            datacounter = datacounter + 1
+            #data[datacounter] = (y + height)/2
+            data.append(y + (height/2))
+            #datacounter = datacounter + 1
             
-            data[datacounter] = 'distance'
-            datacounter = datacounter + 1
+            #data[datacounter] = 'distance'
+            data.append('distance')
+            #datacounter = datacounter + 1
             
-            data[datacounter] = getDistance(obName, width)
+            #data[datacounter] = getDistance(obName, width)
+            data.append(getDistance(obName, width))
             
         count = (count + 1) % 5
         
