@@ -1,16 +1,25 @@
 
-#from tkinter import * #this is for Python3
-from Tkinter import *
+from tkinter import * #this is for Python3
+#from Tkinter import *
 import time
 from PIL import Image, ImageTk
 
 imageWidth = 200
 imageHeight = 175
 
+root = Tk()
+mainFrame = Frame()
+imageFrame = Frame()
+imageLabel = Label()
+dataFrame = Frame()
+netTextBox = Text()
+resTextBox = Text()
+
 '''
 Initializes the window to use
 '''
 def init():
+    global root, mainFrame, imageFrame, imageLabel, dataFrame, netTextBox, resTextBox
     root = Tk()
     root.title("Debug Window")
     
@@ -101,6 +110,7 @@ def updateWindow():
 Runs if this file is run as a main file. Used for debugging.
 '''
 if(__name__ == '__main__'):
+    init()
     for i in range(15):
         newText1 = "New Net Stuff" + str(i)
         newText2 = "New Res Stuff" + str(i)
