@@ -16,7 +16,8 @@ if __name__ == '__main__':
             debug = True
      
     if(debug):
-        print("Initializing cam")    
+        an.debug()
+        print("Initializing cam")
     cam.init("video.mp4")
 #    out.init()
 #    if(debug):
