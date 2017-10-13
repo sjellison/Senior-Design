@@ -9,6 +9,11 @@ import MySQLdb
 database = MySQLdb.connect("localhost", "analysis", "Dec_1710", "Objects")
 dbcursor = database.cursor()
 
+debug = False
+
+def debug():
+    debug = True
+
 '''
 Returns a list of data for every object in the list. Assumes a strict data formating.
 list - the list of objects. data must be in the form: name, xpos, ypos, width, height
@@ -73,11 +78,13 @@ Determines the distance to the object
 ''' 
 def getDistance(name, width):
     
-    query = "SELECT width FROM Objects WHERE name == '%s'" % (name)
+    query = "SELECT width FROM Objects WHERE name='%s'" % (name)
 
     try:
         dbcursor.execute(query)
         objectwidth = dbcursor[width]
+        if(debug):
+            print(dbcursor)
         #objectwidth = 3.75 #meters
         focallength = .0036 #meters
         dbcursor.close()
