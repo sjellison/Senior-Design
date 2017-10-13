@@ -13,6 +13,10 @@ debug = False
 
 def debug():
     debug = True
+    print("Testing database connection...")
+    print(dbcursor.execute("SELECT VERSION()"))
+    print("Database version: " + dbcursor.fetchone())
+    print("Database test complete")
 
 '''
 Returns a list of data for every object in the list. Assumes a strict data formating.
@@ -78,13 +82,15 @@ Determines the distance to the object
 ''' 
 def getDistance(name, width):
     
-    query = "SELECT width FROM Objects WHERE name=%s;" % (name)
+    query = """SELECT width 
+                FROM Objects
+                WHERE name='%s'""" % (name)
     if(debug):
         print("Query used: " + query)
 
     try:
         dbcursor.execute(query)
-        objectwidth = dbcursor[width]
+        objectwidth = dbcursor.fetchall()
         if(debug):
             print(dbcursor)
         #objectwidth = 3.75 #meters
