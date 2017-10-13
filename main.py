@@ -13,7 +13,7 @@ if __name__ == '__main__':
 #        if(str.lower(sys.argv[1]) == "debug"):
 #            debug = True
         
-    out.init()
+#    out.init()
 #    if(debug):
 #        deb.init()
     
@@ -22,7 +22,7 @@ if __name__ == '__main__':
             frame = cam.getFrame()
             list = net.getList(frame)
             result = an.getData(list)
-            out.out(result)
+#            out.out(result)
             
 #            if(debug):
 #               deb.updateImage(frame)
@@ -30,6 +30,5 @@ if __name__ == '__main__':
 #                deb.updateResText(result)
                 
         finally:
-            out.close()
-            cam.close()
+#            out.close()
 
