@@ -15,7 +15,7 @@ def debug():
     debug = True
     print("Testing database connection...")
     print(dbcursor.execute("SELECT VERSION()"))
-    print("Database version: " + dbcursor.fetchone())
+    print("Database version: %s" % dbcursor.fetchone())
     print("Database test complete")
 
 '''
