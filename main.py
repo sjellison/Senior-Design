@@ -3,7 +3,7 @@ import Analysis.Analysis as an
 import Output.Output as out
 import Network.Network as net
 import Camera.Camera as cam
-#import Debug.Debug as deb
+import Debug.Debug as deb
 import sys
 
 debug = False
