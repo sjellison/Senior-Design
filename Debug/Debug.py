@@ -83,6 +83,10 @@ def updateResText(result):
     resTextBox.pack
     root.update()
     
+def printToTerm(data=[]):
+    for _ in data:
+        print(_)
+    
 '''
 Updates the window. Shouldn't need to be called, but it's there if the need arises.
 '''
