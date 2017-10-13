@@ -84,7 +84,7 @@ def getDistance(name, width):
         return ((focallength * objectwidth) / width)
 
     except:
-        print("Error: Could not fetch data")
+        print("Error: Could not fetch data for " + name)
    
 '''
 Calculates the focal length for the camera given the object's actual width, number of pixels wide the object is in the image,
