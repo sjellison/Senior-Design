@@ -62,7 +62,6 @@ def analyze(self, image_data):
 
         # Sort to show labels of first prediction in order of confidence
         top_k = predictions[0].argsort()[-len(predictions[0]):][::-1]
-
         for node_id in top_k:
             human_string = label_lines[node_id]
             score = predictions[0][node_id]

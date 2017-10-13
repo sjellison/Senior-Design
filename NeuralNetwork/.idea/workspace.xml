@@ -2,16 +2,94 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="524f4115-6435-4c51-a041-61be4070b413" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archive/README" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archive/Training/__init__.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/archive/__init__.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archive/other_scripts/learning.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/archive/other_scripts/learning2.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/learning.py" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/learning2.py" afterPath="$PROJECT_DIR$/archive/Training/learning2.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/README" afterPath="$PROJECT_DIR$/README" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/__init__.py" afterPath="$PROJECT_DIR$/archive/other/__init__.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/learning2.py" afterPath="$PROJECT_DIR$/archive/other/learning2.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/2Q== (1).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/2Q== (1).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/2Q== (2).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/2Q== (2).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/2Q== (3).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/2Q== (3).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/2Q==.jpg" afterPath="$PROJECT_DIR$/archive/training/planes/2Q==.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/9k= (1).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/9k= (1).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/9k= (2).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/9k= (2).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/9k= (3).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/9k= (3).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/9k= (4).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/9k= (4).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/9k=.jpg" afterPath="$PROJECT_DIR$/archive/training/planes/9k=.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/Z (1).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/Z (1).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/Z (2).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/Z (2).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/Z (3).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/Z (3).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/Z (4).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/Z (4).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/Z.jpg" afterPath="$PROJECT_DIR$/archive/training/planes/Z.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (1).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (1).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (10).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (10).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (11).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (11).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (12).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (12).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (13).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (13).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (14).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (14).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (15).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (15).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (16).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (16).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (17).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (17).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (18).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (18).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (19).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (19).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (2).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (2).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (20).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (20).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (21).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (21).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (22).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (22).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (23).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (23).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (24).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (24).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (25).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (25).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (26).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (26).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (27).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (27).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (28).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (28).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (29).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (29).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (3).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (3).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (30).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (30).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (31).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (31).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (32).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (32).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (33).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (33).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (34).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (34).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (35).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (35).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (4).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (4).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (5).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (5).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (6).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (6).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (7).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (7).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (8).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (8).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images (9).jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images (9).jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/planes/images.jpg" afterPath="$PROJECT_DIR$/archive/training/planes/images.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_001.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_001.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_002.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_002.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_003.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_003.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_004.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_004.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_005.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_005.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_006.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_006.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_007.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_007.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_008.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_008.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_009.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_009.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_010.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_010.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_011.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_011.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_012.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_012.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_013.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_013.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_014.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_014.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_015.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_015.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_016.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_016.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_017.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_017.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_018.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_018.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_019.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_019.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_020.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_020.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_021.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_021.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_022.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_022.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_023.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_023.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_024.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_024.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_025.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_025.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_026.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_026.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_027.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_027.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_028.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_028.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/Training/roses/pic_029.jpg" afterPath="$PROJECT_DIR$/archive/training/roses/pic_029.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/__init__.py" afterPath="$PROJECT_DIR$/archive/train.sh" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/classify.py" afterPath="$PROJECT_DIR$/archive/other/classify.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/archive/learning.py" afterPath="$PROJECT_DIR$/archive/other/learning.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/NNModule.py" afterPath="$PROJECT_DIR$/NNModule.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/archive/classify.py" afterPath="$PROJECT_DIR$/archive/classify.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -22,36 +100,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="classify.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/archive/classify.py">
+      <file leaf-file-name="train.sh" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/archive/train.sh">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="24" column="79" lean-forward="true" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="79" />
-              <folding>
-                <element signature="e#99#122#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="learning2.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/archive/Training/learning2.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="26" column="66" lean-forward="true" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+            <state relative-caret-position="119">
+              <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="learning.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/archive/learning.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -59,8 +113,18 @@
       <file leaf-file-name="NNModule.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/NNModule.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="65" column="28" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="28" />
+            <state relative-caret-position="478">
+              <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -85,6 +149,9 @@
         <option value="$PROJECT_DIR$/archive/README" />
         <option value="$PROJECT_DIR$/archive/classify.py" />
         <option value="$PROJECT_DIR$/NNModule.py" />
+        <option value="$PROJECT_DIR$/archive/other/classify.py" />
+        <option value="$PROJECT_DIR$/archive/train.sh" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -109,6 +176,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -125,14 +194,18 @@
               <item name="NeuralNetwork" type="b2602c69:ProjectViewProjectNode" />
               <item name="NeuralNetwork" type="462c0819:PsiDirectoryNode" />
               <item name="archive" type="462c0819:PsiDirectoryNode" />
-              <item name="Training" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralNetwork" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralNetwork" type="462c0819:PsiDirectoryNode" />
+              <item name="archive" type="462c0819:PsiDirectoryNode" />
+              <item name="training" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -141,6 +214,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\samba\Documents\workspace\491-dec1710\NeuralNetwork\archive\other" />
+      <recent name="C:\Users\samba\Documents\workspace\491-dec1710\NeuralNetwork" />
       <recent name="C:\Users\samba\Documents\workspace\491-dec1710\NeuralNetwork\archive\Training" />
     </key>
   </component>
@@ -203,6 +278,22 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/archive/train.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/NNModule.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1088">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/NNModule.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="663">
@@ -211,21 +302,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/learning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="7" column="27" lean-forward="true" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/learning.py">
+    <entry file="file://$PROJECT_DIR$/learning.py" />
+    <entry file="file://$PROJECT_DIR$/archive/other/learning.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
           <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -233,17 +314,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="18" lean-forward="true" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive/classify.py">
+    <entry file="file://$PROJECT_DIR$/archive/other/classify.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="13" column="0" lean-forward="true" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding>
-            <element signature="e#99#122#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -255,19 +332,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/learning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="20" column="40" lean-forward="true" selection-start-line="20" selection-start-column="40" selection-end-line="20" selection-end-column="40" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/learning.py" />
     <entry file="file://$PROJECT_DIR$/gpu_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="15" column="48" lean-forward="true" selection-start-line="15" selection-start-column="48" selection-end-line="15" selection-end-column="48" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -280,101 +349,80 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/archive/label_image.py" />
-    <entry file="file://$PROJECT_DIR$/learning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="27" lean-forward="false" selection-start-line="7" selection-start-column="27" selection-end-line="7" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/other_scripts/learning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/Training/planes/2Q== (2).jpg">
+    <entry file="file://$PROJECT_DIR$/learning.py" />
+    <entry file="file://$PROJECT_DIR$/archive/other_scripts/learning.py" />
+    <entry file="file://$PROJECT_DIR$/archive/training/planes/2Q== (2).jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive/Training/planes/9k=.jpg">
+    <entry file="file://$PROJECT_DIR$/archive/training/planes/9k=.jpg">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive/Training/planes/9k= (3).jpg">
+    <entry file="file://$PROJECT_DIR$/archive/training/planes/9k= (3).jpg">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/Training/__init__.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gpu_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" column="18" lean-forward="false" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive/README">
+    <entry file="file://$PROJECT_DIR$/README">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="36" lean-forward="false" selection-start-line="0" selection-start-column="36" selection-end-line="0" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive/learning2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="0" lean-forward="true" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/Training/learning2.py">
+    <entry file="file://$PROJECT_DIR$/archive/learning2.py" />
+    <entry file="file://$PROJECT_DIR$/archive/Training/__init__.py" />
+    <entry file="file://$PROJECT_DIR$/archive/other/learning2.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="26" column="66" lean-forward="true" selection-start-line="26" selection-start-column="66" selection-end-line="26" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/other/learning.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/other/classify.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/archive/train.sh">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="21" lean-forward="false" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/archive/learning.py">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="18" lean-forward="true" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#23#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/archive/classify.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="24" column="79" lean-forward="true" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="79" />
-          <folding>
-            <element signature="e#99#122#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="5" lean-forward="false" selection-start-line="0" selection-start-column="5" selection-end-line="0" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/NNModule.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="65" column="28" lean-forward="false" selection-start-line="65" selection-start-column="23" selection-end-line="65" selection-end-column="28" />
+        <state relative-caret-position="478">
+          <caret line="64" column="0" lean-forward="false" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
           <folding />
         </state>
       </provider>
