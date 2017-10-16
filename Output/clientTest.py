@@ -1,8 +1,8 @@
 
 import socket, pickle
 
-host = socket.gethostname()
-#host = "tx1-dec1710.student.iastate.edu"
+#host = socket.gethostname()
+host = "tx1-dec1710.student.iastate.edu"
 print(host)
 port = 4500
 if __name__ == '__main__':
@@ -12,7 +12,9 @@ if __name__ == '__main__':
         client.connect((host, port))
         while(True):
             print("Getting data")
-            print(pickle.loads(client.recv(72)))
+            recv = client.recv(72)
+            print(recv)
+            print(pickle.loads(recv))
 
     finally:
         print("Closing Client")

@@ -13,7 +13,7 @@ if __name__ == '__main__':
             dat2 = int(i *3.14)
             dat3 = int((dat1+dat2)/3)
             data =[name, 'xposition', dat1, 'yposition', dat2, 'distance', dat3]
-        
+
             output.out(data)
         
     finally:    
