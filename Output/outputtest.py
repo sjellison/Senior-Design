@@ -15,7 +15,7 @@ if __name__ == '__main__':
             data =[name, 'xposition', dat1, 'yposition', dat2, 'distance', dat3]
 
             print("Sending...")
-            print("data")
+            print(data)
             output.out(data)
         
     finally:    
