@@ -1,14 +1,9 @@
-'''
-Created on Oct 8, 2017
-
-@author: bebop
-'''
 
 import socket, pickle
 import atexit
 
-#serv_addr = './ap_unix_socket' #for unix socket, but that doesn't seem to be supported anymore
-host = socket.gethostname()
+host = "tx1-dec1710.student.iastate.edu"
+#host = socket.gethostname()
 port = 4500
 
 server = socket.socket()
