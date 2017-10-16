@@ -14,6 +14,8 @@ if __name__ == '__main__':
             dat3 = int((dat1+dat2)/3)
             data =[name, 'xposition', dat1, 'yposition', dat2, 'distance', dat3]
 
+            print("Sending...")
+            print("data")
             output.out(data)
         
     finally:    
