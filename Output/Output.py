@@ -27,7 +27,7 @@ def init():
     #print("Test completed, closing socket")
     #server.close()
 
-def out(data={}):
+def out(data=[]):
     global conn
     dataArr = parse(data)
     print("Sending data...")
