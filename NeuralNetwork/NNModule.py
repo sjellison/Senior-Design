@@ -65,8 +65,12 @@ def analyze(image_data):
     global sess
     global softmax_tensor
     print "Analyze called"
+    
+    np_image_data = np.asarray(image_data)
+    feed_dict = {some_tf_input:np_image_data}
     # Feed the image_data as input to the graph and get first prediction
-    predictions = sess.run(softmax_tensor, {'DecodeJpeg/contents:0': image_data})
+    predictions = sess.run(softmax_tensor, {feed_dict=feed_dict})
+    #predictions = sess.run(softmax_tensor, {'DecodeJpeg/contents:0': image_data})
 
     # Sort to show labels of first prediction in order of confidence
     top_k = predictions[0].argsort()[-len(predictions[0]):][::-1]
