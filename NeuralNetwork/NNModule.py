@@ -72,7 +72,7 @@ def analyze(image_data):
     for node_id in top_k:
         human_string = label_lines[node_id]
         score = predictions[0][node_id]
-            return '%s (score = %.5f)' % (human_string, score)
+        return '%s (score = %.5f)' % (human_string, score)
 
 
 def draw_box_on_found_objects(img, object_data):
