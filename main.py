@@ -21,7 +21,7 @@ if __name__ == '__main__':
     
     if(debug):
         print("Initializing NeuralNetwork")
-    nn.__init
+    nn.__init__()
 #    out.init()
 #    if(debug):
 #        deb.init()
