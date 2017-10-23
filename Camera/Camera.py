@@ -20,7 +20,7 @@ def get_image_old():
 def get_image():
     global camera
     retval, im = camera.read()
-    return cv2.EncodeImage('.jpg', im)
+    return cv2.imencode('.jpg', im)
     
 #convert to grayScale
 def convert(im):
