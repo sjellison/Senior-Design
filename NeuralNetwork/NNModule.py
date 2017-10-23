@@ -51,6 +51,11 @@ def __init__():
     label_lines = [line.rstrip() for line in tf.gfile.GFile("/tf_files/retrained_labels.txt")]
 
 
+def analyze_image(image_path):
+    image_data = tf.gfile.FastGFile(image_path, 'rb').read()
+    return analyze(image_data)
+
+
 def analyze(image_data):
     global label_lines
     print "Analyze called"
@@ -68,7 +73,7 @@ def analyze(image_data):
             return '%s (score = %.5f)' % (human_string, score)
 
 
-def drawbox_on_found_objects(img, object_data):
+def draw_box_on_found_objects(img, object_data):
     print "TODO:Draw a box on img!"
 
 
