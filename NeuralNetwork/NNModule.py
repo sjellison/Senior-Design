@@ -51,6 +51,8 @@ def __init__():
     label_lines = [line.rstrip() for line in tf.gfile.GFile("/tf_files/retrained_labels.txt")]
     global sess
     sess = tf.Session()
+    global softmax_tensor
+    softmax_tensor = sess.graph.get_tensor_by_name('final_result:0')
 
 
 def analyze_image(image_path):
@@ -60,11 +62,10 @@ def analyze_image(image_path):
 
 def analyze(image_data):
     global label_lines
-    global label_lines
+    global sess
+    global softmax_tensor
     print "Analyze called"
     # Feed the image_data as input to the graph and get first prediction
-    softmax_tensor = sess.graph.get_tensor_by_name('final_result:0')
-
     predictions = sess.run(softmax_tensor, {'DecodeJpeg/contents:0': image_data})
 
     # Sort to show labels of first prediction in order of confidence
