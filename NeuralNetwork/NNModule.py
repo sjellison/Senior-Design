@@ -38,7 +38,7 @@
 import tensorflow as tf
 
 
-def __init__(self):
+def __init__():
     # Initialize the NN, set up any variables
     print "Constructor called"
     # Unpersists graph from file
@@ -51,7 +51,7 @@ def __init__(self):
     label_lines = [line.rstrip() for line in tf.gfile.GFile("/tf_files/retrained_labels.txt")]
 
 
-def analyze(self, image_data):
+def analyze(image_data):
     global label_lines
     print "Analyze called"
     with tf.Session() as sess:
@@ -68,16 +68,16 @@ def analyze(self, image_data):
             return '%s (score = %.5f)' % (human_string, score)
 
 
-def drawbox_on_found_objects(self, img, object_data):
+def drawbox_on_found_objects(img, object_data):
     print "TODO:Draw a box on img!"
 
 
-def img_out(self, imt, highlighting):
+def img_out(img, highlighting):
     if highlighting:
         print "TODO:Highlighting disabled"
     else:
         print "TODO:Highlighting enabled"
 
 
-def output(self,data):
+def output(data):
     print "TODO:This is where output data will occur"
