@@ -36,6 +36,7 @@
 #     def output(data):
 #       This method will output statistical data as needed to the next stage
 import tensorflow as tf
+import numpy as np
 
 
 def __init__():
