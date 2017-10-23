@@ -29,7 +29,7 @@ Returns a list of data for every object in the list. Assumes a strict data forma
 list - the list of objects. data must be in the form: name, xpos, ypos, width, height
 return - an array of data for every object. data is in the form: object name1, data type1, related data, data type2..., object name2...
 '''
-def getData(dataList=[]):
+def getData_old(dataList=[]):
     #data = {}
     data = []
     #datacounter = 0
@@ -78,6 +78,14 @@ def getData(dataList=[]):
         
     return data
     
+def getData(data={}):
+    d = []
+    for i in data:
+        d.append(i["name"])
+        d.append(i["score"])
+        d.append(getDistance(i["name"], 10)) #currently an arbitrary width
+
+    return d
 
 '''
 Determines the distance to the object
