@@ -12,10 +12,15 @@ def init(port):
     global camera
     camera = cv2.VideoCapture(port)
     
-def get_image():
+def get_image_old():
     global camera
     retval, im = camera.read()
     return im
+    
+def get_image():
+    global camera
+    retval, im = camera.read()
+    return cv.EncodeImage('.jpg', im)
     
 #convert to grayScale
 def convert(im):
