@@ -20,10 +20,7 @@ def get_image_old():
 def get_image():
     global camera
     retval, im = camera.read()
-    if(retval):
-        return cv2.imencode('.jpg', im)
-    else:
-        return cv2.frame
+    return cv2.imencode('.jpg', im)
     
 #convert to grayScale
 def convert(im):
@@ -34,7 +31,7 @@ def convert(im):
 def test():
     cv2.namedWindow("cam-test", cv2.WINDOW_AUTOSIZE)
     for _ in range(10000):
-        im = get_image()
+        im = get_image_old()
         cv2.imshow("cam-test", im)
         cv2.waitKey(22)
     cv2.destroWindow("cam-test")
