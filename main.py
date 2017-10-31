@@ -21,11 +21,13 @@ dataLock = threading.Lock()
 
 #class for running the cam thread
 class camThread(threading.Thread):
+    global frameLock, sharedFrame, debug
     def __init__(self):
         threading.Thread.__init__(self)
+        if(debug):
+            print("Cam Thread Initialized")
     
     def run(self):
-        global frameLock, sharedFrame, debug
         while(True):
             #Always want the camera to be running and getting new frames
             frame = cam.getFrame()
@@ -39,14 +41,16 @@ class camThread(threading.Thread):
 
 #class for running the neural network thread
 class nnThread(threading.Thread):
+    global frameLock, dataLock, sharedData, sharedFrame, debug
     def __init__(self):
         threading.Thread.__init__(self)
+        if(debug):
+            print("NN Thread Initialized")
     
     #TODO Currently, it is possible to analyze the same frame multiple times
     #A possible solution is to make the sharedFrame = None after analysis, but
     #that runs the risk of ignoring frames since cam is asynchronous
     def run(self):
-        global frameLock, dataLock, sharedData, sharedFrame, debug
         #TODO needs to analyze frames and spit out results
         while(True):
             #blocks the thread until a frame can be acquired
@@ -92,6 +96,8 @@ if __name__ == '__main__':
         print("Initializing NN Thread")
     nnt = nnThread()
     
+    ct.start()
+    nnt.start()
 #    out.init()
 #    if(debug):
 #        deb.init()
