@@ -3,12 +3,67 @@ import Analysis.Analysis as an
 import Output.Output as out
 import NeuralNetwork.NNModule as nn
 import Camera.Camera as cam
+import threading
 #import Debug.Debug as deb
 import sys
+from external.org_pocoo_werkzeug.werkzeug.wsgi import SharedDataMiddleware
 
 debug = False
 
+sharedFrame = None
+sharedData = None
+
+#a thread lock for entering and exiting the frame's critical region
+frameLock = threading.Lock()
+
+#a thread lock for entering and exiting the data's critical region
+dataLock = threading.Lock()
+
+#class for running the cam thread
+class camThread(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+    
+    def run(self):
+        global frameLock, sharedFrame
+        while(True):
+            #Always want the camera to be running and getting new frames
+            frame = cam.getFrame()
+            
+            #pass along the frame only when able
+            if(frameLock.acquire(0)):
+                sharedFrame = frame
+                frameLock.release()
+
+#class for running the neural network thread
+class nnThread(threading.Thread):
+    def __init__(self):
+        threading.Thread.__init__(self)
+    
+    #TODO Currently, it is possible to analyze the same frame multiple times
+    #A possible solution is to make the sharedFrame = None after analysis, but
+    #that runs the risk of ignoring frames since cam is asynchronous
+    def run(self):
+        global frameLock, dataLock, sharedData, sharedFrame
+        #TODO needs to analyze frames and spit out results
+        while(True):
+            #blocks the thread until a frame can be acquired
+            frameLock.acquire(1)
+            localFrame = sharedFrame
+            frameLock.release()
+            
+            if(localFrame != None):
+                localData = nn.analyze(localFrame)
+            
+                #forces the neural network to wait until it can pass along its most recent results
+                dataLock.acquire(1)
+                sharedData = localData
+                dataLock.release()
+
 if __name__ == '__main__':
+    global frameLock, dataLock, sharedFrame, sharedData
+    
+    #check for debug mode
     if(len(sys.argv) > 1):
         if(str.lower(sys.argv[1]) == "debug"):
             print("--Setting mode to Debug--")
@@ -17,33 +72,42 @@ if __name__ == '__main__':
     if(debug):
         an.debug()
         print("Initializing cam")
-    cam.init("video.mp4")
+    cam.init("Camera/video.mp4")
+    
+    if(debug):
+        print("Initializing Cam Thread")
+    ct = camThread()
     
     if(debug):
         print("Initializing NeuralNetwork")
     nn.__init__()
+    
+    if(debug):
+        print("Initializing NN Thread")
+    nnt = nnThread()
+    
 #    out.init()
 #    if(debug):
 #        deb.init()
     
     while(True):
-#        try:
-        if(debug):
-            print("Getting frame from cam")
-        frame = cam.get_image()
+
+        #blocks until it can acquire data to be further analyzed
+        dataLock.acquire(1)
+        data = sharedData
+        dataLock.release()
         
-        if(debug):
-            print("Getting List from Network")
-        data = nn.analyze(frame)
-        
-        if(debug):
-            print("Getting result from analysis")
-        result = an.getData(data)
+        if(data != None):
+            if(debug):
+                print("Getting result from analysis")
+            result = an.getData(data)
         
         if(debug):
             print("--Printing Results--")
             print(result)
-
+        
+        #TODO Need to output the results now
+        
         if(debug):
             print("--------------------")
             
@@ -56,3 +120,32 @@ if __name__ == '__main__':
 #        finally:
 #            out.close()
 
+#Function for the camera thread to run
+#def camThread():
+#    global frameLock, sharedFrame
+#    #TODO needs to pull frames
+#    while(True):
+#        #Always want the camera to be running and getting new frames
+#        frame = cam.getFrame()
+#        
+#        #pass along the frame only when able
+#        if(frameLock.acquire(0)):
+#            sharedFrame = frame
+#            frameLock.release()
+            
+
+#def nnThread():
+#    global frameLock, dataLock, sharedData, sharedFrame
+#    #TODO needs to analyze frames and spit out results
+#    while(True):
+#        #blocks the thread until a frame can be acquired
+#        frameLock.acquire(1)
+#        localFrame = sharedFrame
+#        frameLock.release()
+#        
+#        localData = nn.analyze(localFrame)
+#        
+#        #forces the neural network to wait until it can pass along its most recent results
+#        dataLock.acquire(1)
+#        sharedData = localData
+#        dataLock.release()
