@@ -101,10 +101,9 @@ if __name__ == '__main__':
             if(debug):
                 print("Getting result from analysis")
             result = an.getData(data)
-        
-        if(debug):
-            print("--Printing Results--")
-            print(result)
+            if(debug):
+                print("--Printing Results--")
+                print(result)
         
         #TODO Need to output the results now
         
