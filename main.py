@@ -22,10 +22,9 @@ dataLock = threading.Lock()
 
 #class for running the cam thread
 class camThread(threading.Thread):
-    global frameLock, sharedFrame, debug
-    
     def run(self):
         while(True):
+            global frameLock, sharedFrame, debug
             #Always want the camera to be running and getting new frames
             frame = cam.get_image()
             
@@ -41,14 +40,12 @@ class camThread(threading.Thread):
                 frameLock.release()
 
 #class for running the neural network thread
-class nnThread(threading.Thread):
-    global frameLock, dataLock, sharedData, sharedFrame, debug
-    
+class nnThread(threading.Thread):    
     #TODO Currently, it is possible to analyze the same frame multiple times
     #A possible solution is to make the sharedFrame = None after analysis, but
     #that runs the risk of ignoring frames since cam is asynchronous
     def run(self):
-        #TODO needs to analyze frames and spit out results
+        global frameLock, dataLock, sharedData, sharedFrame, debug
         while(True):
             #blocks the thread until a frame can be acquired
             frameLock.acquire(1)
