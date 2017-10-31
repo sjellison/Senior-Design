@@ -1,5 +1,5 @@
 
-import Analysis.Analysis as an
+#import Analysis.Analysis as an
 import Output.Output as out
 import NeuralNetwork.NNModule as nn
 import Camera.Camera as cam
@@ -80,7 +80,7 @@ if __name__ == '__main__':
             debug = True
      
     if(debug):
-        an.debug()
+        #an.debug()
         print("Initializing cam")
     cam.init("Camera/video.mp4")
     
@@ -102,7 +102,8 @@ if __name__ == '__main__':
 #    if(debug):
 #        deb.init()
     
-    while(True):
+    count = 0
+    while(count < 10):
 
         #blocks until it can acquire data to be further analyzed
         dataLock.acquire(1)
@@ -112,18 +113,20 @@ if __name__ == '__main__':
             print(data)
         dataLock.release()
         
-        if(data != None):
-            if(debug):
-                print("Getting result from analysis")
-            result = an.getData(data)
-            if(debug):
-                print("--Printing Results--")
-                print(result)
+        #if(data != None):
+        #    if(debug):
+        #        print("Getting result from analysis")
+        #    result = an.getData(data)
+        #    if(debug):
+        #        print("--Printing Results--")
+        #        print(result)
         
         #TODO Need to output the results now
         
         if(debug):
             print("--------------------")
+            
+        count += 1
             
 #        if(debug):
 #           deb.printToTerm(result)
