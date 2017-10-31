@@ -28,9 +28,6 @@ class camThread(threading.Thread):
         while(True):
             #Always want the camera to be running and getting new frames
             frame = cam.get_image()
-            if(debug):
-                print("Got frame")
-                print(frame)
             
             #pass along the frame only when able
             if(frameLock.acquire(0)):
@@ -54,6 +51,8 @@ class nnThread(threading.Thread):
             if(debug):
                 print("NN: Grabbing frame")
             localFrame = sharedFrame
+                        if(debug):
+                print(localFrame)
             frameLock.release()
             
             if(localFrame != None):
