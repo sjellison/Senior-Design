@@ -65,7 +65,7 @@ class nnThread(threading.Thread):
                 sharedData = localData
                 dataLock.release()
             else:
-                time.sleep(0)
+                time.sleep(2)
 
 if __name__ == '__main__':
     #check for debug mode
@@ -91,6 +91,8 @@ if __name__ == '__main__':
         print("Initializing NN Thread")
     nnt = nnThread()
     
+    if(debug):
+        print("Starting threads")
     try:
         ct.start()
         nnt.start()
