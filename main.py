@@ -4,6 +4,7 @@ import Output.Output as out
 import NeuralNetwork.NNModule as nn
 import Camera.Camera as cam
 import threading
+import time
 #import Debug.Debug as deb
 import sys
 
@@ -71,6 +72,8 @@ class nnThread(threading.Thread):
                     print("NN: Updating data")
                 sharedData = localData
                 dataLock.release()
+            else:
+                time.sleep(0)
 
 if __name__ == '__main__':
     #check for debug mode
