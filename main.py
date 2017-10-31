@@ -5,6 +5,8 @@ import NeuralNetwork.NNModule as nn
 import Camera.Camera as cam
 import threading
 #import Debug.Debug as deb
+import sys
+
 
 debug = False
 
