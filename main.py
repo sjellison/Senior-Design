@@ -96,8 +96,12 @@ if __name__ == '__main__':
         print("Initializing NN Thread")
     nnt = nnThread()
     
-    ct.start()
-    nnt.start()
+    try:
+        ct.start()
+        nnt.start()
+    except:
+        print("Error starting threads")
+        
 #    out.init()
 #    if(debug):
 #        deb.init()
@@ -105,6 +109,15 @@ if __name__ == '__main__':
     count = 0
     while(count < 10):
 
+        if(debug):
+            if(ct.is_alive()):
+                print("CT still running")
+            else:
+                print("CT not running")
+            if(nnt.is_alive()):
+                print("NNT still running")
+            else:
+                print("NNT not running")
         #blocks until it can acquire data to be further analyzed
         dataLock.acquire(1)
         data = sharedData
