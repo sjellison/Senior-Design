@@ -51,7 +51,7 @@ class nnThread(threading.Thread):
             if(debug):
                 print("NN: Grabbing frame")
             localFrame = sharedFrame
-                        if(debug):
+            if(debug):
                 print(localFrame)
             frameLock.release()
             
