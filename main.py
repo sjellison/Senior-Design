@@ -25,13 +25,15 @@ class camThread(threading.Thread):
         threading.Thread.__init__(self)
     
     def run(self):
-        global frameLock, sharedFrame
+        global frameLock, sharedFrame, debug
         while(True):
             #Always want the camera to be running and getting new frames
             frame = cam.getFrame()
             
             #pass along the frame only when able
             if(frameLock.acquire(0)):
+                if(debug):
+                    print("Cam: Updating frame")
                 sharedFrame = frame
                 frameLock.release()
 
@@ -44,25 +46,29 @@ class nnThread(threading.Thread):
     #A possible solution is to make the sharedFrame = None after analysis, but
     #that runs the risk of ignoring frames since cam is asynchronous
     def run(self):
-        global frameLock, dataLock, sharedData, sharedFrame
+        global frameLock, dataLock, sharedData, sharedFrame, debug
         #TODO needs to analyze frames and spit out results
         while(True):
             #blocks the thread until a frame can be acquired
             frameLock.acquire(1)
+            if(debug):
+                print("NN: Grabbing frame")
             localFrame = sharedFrame
             frameLock.release()
             
             if(localFrame != None):
+                if(debug):
+                    print("NN: Analyzing")
                 localData = nn.analyze(localFrame)
             
                 #forces the neural network to wait until it can pass along its most recent results
                 dataLock.acquire(1)
+                if(debug):
+                    print("NN: Updating data")
                 sharedData = localData
                 dataLock.release()
 
 if __name__ == '__main__':
-    global frameLock, dataLock, sharedFrame, sharedData
-    
     #check for debug mode
     if(len(sys.argv) > 1):
         if(str.lower(sys.argv[1]) == "debug"):
@@ -95,6 +101,9 @@ if __name__ == '__main__':
         #blocks until it can acquire data to be further analyzed
         dataLock.acquire(1)
         data = sharedData
+        if(debug):
+            print("Acquired data")
+            print(data)
         dataLock.release()
         
         if(data != None):
