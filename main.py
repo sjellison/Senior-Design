@@ -23,10 +23,6 @@ dataLock = threading.Lock()
 #class for running the cam thread
 class camThread(threading.Thread):
     global frameLock, sharedFrame, debug
-    def __init__(self):
-        threading.Thread.__init__(self)
-        if(debug):
-            print("Cam Thread Initialized")
     
     def run(self):
         while(True):
@@ -43,10 +39,6 @@ class camThread(threading.Thread):
 #class for running the neural network thread
 class nnThread(threading.Thread):
     global frameLock, dataLock, sharedData, sharedFrame, debug
-    def __init__(self):
-        threading.Thread.__init__(self)
-        if(debug):
-            print("NN Thread Initialized")
     
     #TODO Currently, it is possible to analyze the same frame multiple times
     #A possible solution is to make the sharedFrame = None after analysis, but
