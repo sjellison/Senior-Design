@@ -27,7 +27,7 @@ class camThread(threading.Thread):
     def run(self):
         while(True):
             #Always want the camera to be running and getting new frames
-            frame = cam.getFrame()
+            frame = cam.get_image()
             
             #pass along the frame only when able
             if(frameLock.acquire(0)):
@@ -64,8 +64,8 @@ class nnThread(threading.Thread):
                     print("NN: Updating data")
                 sharedData = localData
                 dataLock.release()
-            else:
-                time.sleep(2)
+            #else:
+            #    time.sleep()
 
 if __name__ == '__main__':
     #check for debug mode
