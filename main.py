@@ -64,8 +64,8 @@ class nnThread(threading.Thread):
                     print("NN: Updating data")
                 sharedData = localData
                 dataLock.release()
-            #else:
-            #    time.sleep()
+            else:
+                time.sleep(2)
 
 if __name__ == '__main__':
     #check for debug mode
