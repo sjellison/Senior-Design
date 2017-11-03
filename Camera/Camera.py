@@ -8,7 +8,7 @@ import cv2
 
 camera = cv2.VideoCapture
 
-def init(port, d):
+def init(port):
     global camera
     camera = cv2.VideoCapture(port)
     
