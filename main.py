@@ -108,7 +108,7 @@ if __name__ == '__main__':
 #        deb.init()
     
     count = 0
-    while(count < 10):
+    while(True):
 
         if(debug):
             if(ct.is_alive()):
