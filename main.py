@@ -59,6 +59,7 @@ class nnThread(threading.Thread):
             if(localFrame != None):
                 if(debug):
                     print("NN: Analyzing")
+                    print(localFrame)
                 localData = nn.analyze(localFrame)
             
                 #forces the neural network to wait until it can pass along its most recent results

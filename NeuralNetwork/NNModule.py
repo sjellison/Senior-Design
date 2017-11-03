@@ -41,7 +41,7 @@ import numpy as np
 
 def __init__():
     # Initialize the NN, set up any variables
-    print "Constructor called"
+    print ("Constructor called")
     # Unpersists graph from file
     with tf.gfile.FastGFile("/tf_files/retrained_graph.pb", 'rb') as f:
         graph_def = tf.GraphDef()
@@ -65,7 +65,7 @@ def analyze(image_data):
     global label_lines
     global sess
     global softmax_tensor
-    print "Analyze called"
+    print ("Analyze called")
 
     # Feed the image_data as input to the graph and get first prediction
     predictions = sess.run(softmax_tensor, {'DecodeJpeg/contents:0': image_data})
@@ -80,15 +80,15 @@ def analyze(image_data):
 
 
 def draw_box_on_found_objects(img, object_data):
-    print "TODO:Draw a box on img!"
+    print ("TODO:Draw a box on img!")
 
 
 def img_out(img, highlighting):
     if highlighting:
-        print "TODO:Highlighting disabled"
+        print ("TODO:Highlighting disabled")
     else:
-        print "TODO:Highlighting enabled"
+        print ("TODO:Highlighting enabled")
 
 
 def output(data):
-    print "TODO:This is where output data will occur"
+    print ("TODO:This is where output data will occur")
