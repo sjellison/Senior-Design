@@ -81,7 +81,7 @@ if __name__ == '__main__':
     if(debug):
         #an.debug()
         print("Initializing cam")
-    cam.init("Camera/video.mp4")
+    cam.init("Camera/video.mp4", debug)
     
     if(debug):
         print("Initializing Cam Thread")
