@@ -7,11 +7,9 @@ Get image and convert RGB to GrayScale
 import cv2
 
 camera = cv2.VideoCapture
-debug = False
 
 def init(port, d):
-    global camera, debug
-    debug = d
+    global camera
     camera = cv2.VideoCapture(port)
     
 def get_image_old():
@@ -22,9 +20,7 @@ def get_image_old():
 def get_image():
     global camera
     retval, im = camera.read()
-    if(debug):
-        h, w, c = im.shape
-        print("Height: %s, Width %s") % h, w 
+    cv2.imwrite("/media/img.jpg", im)
     return cv2.imencode('.jpg', im)
     
 #convert to grayScale
