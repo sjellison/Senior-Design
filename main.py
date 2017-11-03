@@ -60,7 +60,7 @@ class nnThread(threading.Thread):
                 if(debug):
                     print("NN: Analyzing")
                     print(localFrame)
-                localData = nn.analyze(localFrame)
+                localData = nn.analyze_image("/media/img.jpg")
             
                 #forces the neural network to wait until it can pass along its most recent results
                 dataLock.acquire(1)
