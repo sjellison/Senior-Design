@@ -7,3 +7,4 @@ Network/__pycache__
 Camera/__pycache__
 *.jpg
 *.db
+*.pyc
