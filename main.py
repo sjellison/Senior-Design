@@ -13,6 +13,7 @@ debug = False
 
 sharedFrame = None
 sharedData = None
+datachanged = 0
 
 #a thread lock for entering and exiting the frame's critical region
 frameLock = threading.Lock()
@@ -31,8 +32,8 @@ class camThread(threading.Thread):
             #print("Cam: Attempting framelock")
             # along the frame only when able
             if(frameLock.acquire(0)):
-                if(debug):
-                    print("Cam: Updating frame")
+                #if(debug):
+                    #print("Cam: Updating frame")
                     
                 #frame = cam.get_image()
                 cam.get_image()
@@ -49,23 +50,20 @@ class nnThread(threading.Thread):
     #A possible solution is to make the sharedFrame = None after analysis, but
     #that runs the risk of ignoring frames since cam is asynchronous
     def run(self):
-        global frameLock, dataLock, sharedData, sharedFrame, debug
+        global frameLock, dataLock, sharedData, sharedFrame, debug, datachanged
         while(True):
             #print("Start of NNT")
-            for i in threading.enumerate():
-                if(i.name == "MainThread"):
-                    if(not i.is_alive):
-                        print("Main crashed")
-                        sys.exit()
                         
-            #print("NN: frameLock grab")
+            if(debug):
+                print("NN: frameLock grab")
+                print(frameLock)
             #blocks the thread until a frame can be acquired
             frameLock.acquire(1)
-            if(debug):
-                print("NN: Grabbing frame")
             #localFrame = sharedFrame
             localData = None
             try:
+                if(debug):
+                    print("Beginning analysis")
                 localData = nn.analyze_image("Camera/img.jpg")
                 print("Data from analysis")
                 print(localData)
@@ -74,21 +72,26 @@ class nnThread(threading.Thread):
             #if(debug):
             #    print(localFrame)
             frameLock.release()
-            #print("NN: frameLock released")
+            if(debug):
+                print("NN: frameLock released")
+                print(frameLock)
             #if(localFrame != None):
             #   if(debug):
             #       print("NN: Analyzing")
             #        print(localFrame)
                 #localData = nn.analyze_image("/media/img.jpg")
             
-            #print("NN: datalock grab")
+            if(debug):
+                print("NN: datalock grab")
             #forces the neural network to wait until it can  along its most recent results
             dataLock.acquire(1)
             if(debug):
                 print("NN: Updating data")
             sharedData = localData
+            datachanged = 1
             dataLock.release()
-            #print("NN: datalock release")
+            if(debug):
+                print("NN: datalock release")
             #else:
             #    time.sleep(2)
 
@@ -144,9 +147,11 @@ if __name__ == '__main__':
         dataLock.acquire(1)
         data = sharedData
         #if(debug):
-        print("Acquired data")
-        #if(olddata != data):
-        print(data)	
+        if(datachanged == 1):
+            print("Acquired data")
+            print(data)
+            datachanged = 0
+            print("--------------------")
         dataLock.release()
         olddata = data
         
@@ -160,8 +165,8 @@ if __name__ == '__main__':
         
         #TODO Need to output the results now
         
-        if(debug):
-            print("--------------------")
+        #if(debug):
+        #    print("--------------------")
             
             
         count += 1
