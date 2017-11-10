@@ -32,11 +32,12 @@ class camThread(threading.Thread):
             if(frameLock.acquire(0)):
                 if(debug):
                     print("Cam: Updating frame")
-                frame = cam.get_image()
-                sharedFrame = frame
-                if(debug):
-                    print("Checking shared frame")
-                    print(sharedFrame)
+                #frame = cam.get_image()
+                cam.get_image()
+                #sharedFrame = frame
+                #if(debug):
+                #    print("Checking shared frame")
+                #    print(sharedFrame)
                 frameLock.release()
 
 #class for running the neural network thread
@@ -56,7 +57,7 @@ class nnThread(threading.Thread):
             frameLock.acquire(1)
             if(debug):
                 print("NN: Grabbing frame")
-            localFrame = sharedFrame
+            #localFrame = sharedFrame
             localData = None
             try:
                 localData = nn.analyze_image("Camera/img.jpg")
@@ -64,24 +65,24 @@ class nnThread(threading.Thread):
                 print(localData)
             except:
                 print("Image not found")
-            if(debug):
-                print(localFrame)
+            #if(debug):
+            #    print(localFrame)
             frameLock.release()
             
-            if(localFrame != None):
-                if(debug):
-                    print("NN: Analyzing")
-                    print(localFrame)
+            #if(localFrame != None):
+            #   if(debug):
+            #       print("NN: Analyzing")
+            #        print(localFrame)
                 #localData = nn.analyze_image("/media/img.jpg")
             
-                #forces the neural network to wait until it can pass along its most recent results
-                dataLock.acquire(1)
-                if(debug):
-                    print("NN: Updating data")
-                sharedData = localData
-                dataLock.release()
-            else:
-                time.sleep(2)
+            #forces the neural network to wait until it can pass along its most recent results
+            dataLock.acquire(1)
+            if(debug):
+                print("NN: Updating data")
+            sharedData = localData
+            dataLock.release()
+            #else:
+            #    time.sleep(2)
 
 if __name__ == '__main__':
     #check for debug mode
@@ -147,8 +148,8 @@ if __name__ == '__main__':
         data = sharedData
         #if(debug):
         print("Acquired data")
-        if(olddata != data):
-            print(data)	
+        #if(olddata != data):
+        print(data)	
         dataLock.release()
         olddata = data
         
