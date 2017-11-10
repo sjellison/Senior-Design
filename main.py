@@ -26,13 +26,13 @@ class camThread(threading.Thread):
         while(True):
             global frameLock, sharedFrame, debug
             #Always want the camera to be running and getting new frames
-            frame = cam.get_image()
+            #frame = cam.get_image()
             
             #pass along the frame only when able
             if(frameLock.acquire(0)):
                 if(debug):
                     print("Cam: Updating frame")
-                    print(frame)
+                frame = cam.get_image()
                 sharedFrame = frame
                 if(debug):
                     print("Checking shared frame")
@@ -47,11 +47,23 @@ class nnThread(threading.Thread):
     def run(self):
         global frameLock, dataLock, sharedData, sharedFrame, debug
         while(True):
+            for i in threading.enumerate():
+            	if i.name == "MainThread":
+                	if(not i.is_alive):
+				print("Main crashed")
+				sys.exit()
             #blocks the thread until a frame can be acquired
             frameLock.acquire(1)
             if(debug):
                 print("NN: Grabbing frame")
             localFrame = sharedFrame
+            localData = None
+            try:
+	      localData = nn.analyze_image("/media/img.jpg")
+	      print("Data from analysis")
+              print(localData)
+            except:
+              print("Image not found")
             if(debug):
                 print(localFrame)
             frameLock.release()
@@ -60,7 +72,7 @@ class nnThread(threading.Thread):
                 if(debug):
                     print("NN: Analyzing")
                     print(localFrame)
-                localData = nn.analyze_image("/media/img.jpg")
+                #localData = nn.analyze_image("/media/img.jpg")
             
                 #forces the neural network to wait until it can pass along its most recent results
                 dataLock.acquire(1)
@@ -98,7 +110,7 @@ if __name__ == '__main__':
     if(debug):
         print("Starting threads")
     try:
-        ct.start()
+        #ct.start()
         nnt.start()
     except:
         print("Error starting threads")
@@ -109,24 +121,39 @@ if __name__ == '__main__':
     
     count = 0
     while(True):
-
+	olddata=None
         if(debug):
             if(ct.is_alive()):
                 print("CT still running")
             else:
                 print("CT not running")
+                #sys.exit()
             if(nnt.is_alive()):
                 print("NNT still running")
             else:
                 print("NNT not running")
+                sys.exit()
+
+        if(not ct.is_alive):
+        	print("CT Stopped Running")
+        sys.exit()
+
+        if(not nnt.is_alive):
+        	print("NNT Stopped Running")
+        sys.exit()
+
         #blocks until it can acquire data to be further analyzed
         dataLock.acquire(1)
         data = sharedData
-        if(debug):
-            print("Acquired data")
+        #if(debug):
+        print("Acquired data")
+	if(olddata != data):
             print(data)
+	else:
+ 	    print("Data did not change")	
         dataLock.release()
         
+	olddata = data
         #if(data != None):
         #    if(debug):
         #        print("Getting result from analysis")
