@@ -42,6 +42,7 @@ class camThread(threading.Thread):
                 #    print("Checking shared frame")
                 #    print(sharedFrame)
                 frameLock.release()
+                time.sleep(.5)
                 #print("Cam: framelock released")
 
 #class for running the neural network thread
