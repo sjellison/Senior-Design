@@ -14,6 +14,8 @@ debug = False
 sharedFrame = None
 sharedData = None
 datachanged = 0
+numCamIter = 0
+numNNIter = 0
 
 #a thread lock for entering and exiting the frame's critical region
 frameLock = threading.Lock()
@@ -25,7 +27,7 @@ dataLock = threading.Lock()
 class camThread(threading.Thread):
     def run(self):
         while(True):
-            global frameLock, sharedFrame, debug
+            global frameLock, sharedFrame, debug, numCamIter
             #Always want the camera to be running and getting new frames
             #frame = cam.get_image()
             
@@ -34,7 +36,8 @@ class camThread(threading.Thread):
             if(frameLock.acquire(0)):
                 #if(debug):
                     #print("Cam: Updating frame")
-                    
+                numCamIter += 1
+                print("Cam: ", numCamIter)
                 #frame = cam.get_image()
                 cam.get_image()
                 #sharedFrame = frame
@@ -51,7 +54,7 @@ class nnThread(threading.Thread):
     #A possible solution is to make the sharedFrame = None after analysis, but
     #that runs the risk of ignoring frames since cam is asynchronous
     def run(self):
-        global frameLock, dataLock, sharedData, sharedFrame, debug, datachanged
+        global frameLock, dataLock, sharedData, sharedFrame, debug, datachanged, numNNIter
         while(True):
             #print("Start of NNT")
                         
@@ -63,6 +66,8 @@ class nnThread(threading.Thread):
             #localFrame = sharedFrame
             localData = None
             try:
+                numNNIter += 1
+                print("NN: ", numNNIter)
                 if(debug):
                     print("Beginning analysis")
                 localData = nn.analyze_image("Camera/img.jpg")
