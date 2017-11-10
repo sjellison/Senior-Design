@@ -2,16 +2,21 @@
 import socket, pickle
 import atexit
 
+'''
+SHOULD PROBABLY CONVERT THIS TO USE JSON INSTEAD!
+'''
+
 host = "tx1-dec1710.student.iastate.edu"
-#host = socket.gethostname()
 port = 4500
 
 server = socket.socket()
 conn = socket.socket()
 
-def init():
+def init(test=None):
     global conn
     global server
+    if(test != None):
+        host = socket.gethostname()
     server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     server.bind((host, port))
     server.listen(1)
@@ -25,10 +30,17 @@ def init():
 def out(data=[]):
     global conn
     dataArr = parse(data)
+    print("Data to send: ", str(dataArr))
+    p = pickle.dumps(dataArr)
     print("Sending data...")
-    print("Sending ", dataArr.__sizeof__(), "bytes")
-    if(not(conn.send(pickle.dumps(dataArr)))):
+    print("Sending ", p.__sizeof__(), "bytes")
+    print("Sending ", p)
+    if(not(conn.send(p))):
         print("Errror during server send")
+    s = 'This is a test send'
+    #print("Sending ", s.__sizeof__(), " bytes")
+    #if(not(conn.send(s.encode(encoding='utf_8')))):
+    #    print("Error sending data")
 
 def close():
     global conn
