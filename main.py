@@ -48,10 +48,10 @@ class nnThread(threading.Thread):
         global frameLock, dataLock, sharedData, sharedFrame, debug
         while(True):
             for i in threading.enumerate():
-            	if i.name == "MainThread":
-                	if(not i.is_alive):
-				print("Main crashed")
-				sys.exit()
+                if(i.name == "MainThread"):
+                    if(not i.is_alive):
+                        print("Main crashed")
+                        sys.exit()
             #blocks the thread until a frame can be acquired
             frameLock.acquire(1)
             if(debug):
@@ -59,11 +59,11 @@ class nnThread(threading.Thread):
             localFrame = sharedFrame
             localData = None
             try:
-	      localData = nn.analyze_image("/media/img.jpg")
-	      print("Data from analysis")
-              print(localData)
+                localData = nn.analyze_image("Camera/img.jpg")
+                print("Data from analysis")
+                print(localData)
             except:
-              print("Image not found")
+                print("Image not found")
             if(debug):
                 print(localFrame)
             frameLock.release()
@@ -110,7 +110,7 @@ if __name__ == '__main__':
     if(debug):
         print("Starting threads")
     try:
-        #ct.start()
+        ct.start()
         nnt.start()
     except:
         print("Error starting threads")
@@ -121,13 +121,13 @@ if __name__ == '__main__':
     
     count = 0
     while(True):
-	olddata=None
+        olddata = None
         if(debug):
             if(ct.is_alive()):
                 print("CT still running")
             else:
                 print("CT not running")
-                #sys.exit()
+                sys.exit()
             if(nnt.is_alive()):
                 print("NNT still running")
             else:
@@ -135,25 +135,23 @@ if __name__ == '__main__':
                 sys.exit()
 
         if(not ct.is_alive):
-        	print("CT Stopped Running")
-        sys.exit()
+            print("CT Stopped Running")
+            sys.exit()
 
         if(not nnt.is_alive):
-        	print("NNT Stopped Running")
-        sys.exit()
+            print("NNT Stopped Running")
+            sys.exit()
 
         #blocks until it can acquire data to be further analyzed
         dataLock.acquire(1)
         data = sharedData
         #if(debug):
         print("Acquired data")
-	if(olddata != data):
-            print(data)
-	else:
- 	    print("Data did not change")	
+        if(olddata != data):
+            print(data)	
         dataLock.release()
+        olddata = data
         
-	olddata = data
         #if(data != None):
         #    if(debug):
         #        print("Getting result from analysis")

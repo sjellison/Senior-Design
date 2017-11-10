@@ -5,3 +5,5 @@ Analysis/__pycache__
 Output/__pycache__
 Network/__pycache__
 Camera/__pycache__
+*.jpg
+*.db

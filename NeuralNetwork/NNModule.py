@@ -43,13 +43,13 @@ def __init__():
     # Initialize the NN, set up any variables
     print ("Constructor called")
     # Unpersists graph from file
-    with tf.gfile.FastGFile("/tf_files/retrained_graph.pb", 'rb') as f:
+    with tf.gfile.FastGFile("NeuralNetwork/tf_files/retrained_graph.pb", 'rb') as f:
         graph_def = tf.GraphDef()
         graph_def.ParseFromString(f.read())
         _ = tf.import_graph_def(graph_def, name='')
     # Loads label file, strips off carriage return
     global label_lines
-    label_lines = [line.rstrip() for line in tf.gfile.GFile("/tf_files/retrained_labels.txt")]
+    label_lines = [line.rstrip() for line in tf.gfile.GFile("NeuralNetwork/tf_files/retrained_labels.txt")]
     global sess
     sess = tf.Session()
     global softmax_tensor
