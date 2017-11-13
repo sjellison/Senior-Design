@@ -37,3 +37,5 @@ Other Ignores
 /getFrame.py
 __pycache__
 ./config
+NeuralNetwork
+Camera
