@@ -1,6 +1,8 @@
+try:
+    from tkinter import * #this is for Python3
+except:
+    from Tkinter import *
 
-from tkinter import * #this is for Python3
-#from Tkinter import *
 import time
 from PIL import Image, ImageTk
 
@@ -20,8 +22,9 @@ Initializes the window to use
 '''
 def init():
     global root, mainFrame, imageFrame, imageLabel, dataFrame, netTextBox, resTextBox
-    root = Tk()
+    root = Toplevel()
     root.title("Debug Window")
+    
     
     mainFrame = Frame(root, width=250, height=200)
     mainFrame.pack()
@@ -39,7 +42,7 @@ def init():
     dataFrame = Frame(mainFrame)
     netTextBox = Text(dataFrame, width=100, height=10)
     netTextBox.pack(side="top")
-    resTextBox = Text(dataFrame, width=100, height=10)
+    resTextBox = Text(mainFrame, width=100, height=10)
     resTextBox.pack(side="bottom")
     dataFrame.pack(side="right", fill="both", expand="yes", pady=10)
 
@@ -60,7 +63,7 @@ def updateImage(img):
     global imageLabel, root
     imageLabel.configure(image=img)
     imageLabel.image = img
-    root.update()
+    #root.update()
 
 '''
 Appends the given text to the end of the network text field
@@ -69,7 +72,7 @@ def insertNetText(text):
     global netTextBox
     netTextBox.insert(INSERT, text) #adds new text to what's there
     netTextBox.pack
-    root.update()
+    #root.update()
 
 '''
 Replaces the text in the network text field with the given text
@@ -79,7 +82,7 @@ def updateNetText(data):
     netTextBox.delete("1.0", END)
     netTextBox.insert(INSERT, data) #adds new text to what's there
     netTextBox.pack
-    root.update()
+    #root.update()
     
 '''
 Appends the given text to the end of the results text field
@@ -88,7 +91,7 @@ def insertResText(text):
     global resTextBox
     resTextBox.insert(INSERT, text)
     resTextBox.pack
-    root.update()
+    #root.update()
     
 '''
 Replaces the text in the results text field with the given text
@@ -98,7 +101,7 @@ def updateResText(result):
     resTextBox.delete("1.0", END)
     resTextBox.insert(INSERT, result)
     resTextBox.pack
-    root.update()
+    #root.update()
     
 def printToTerm(data=[]):
     for _ in data:
@@ -115,16 +118,19 @@ Runs if this file is run as a main file. Used for debugging.
 '''
 if(__name__ == '__main__'):
     init()
+
     for i in range(15):
         newText1 = "New Net Stuff" + str(i)
         newText2 = "New Res Stuff" + str(i)
         updateNetText(newText1)
         updateResText(newText2)
-        #if(i % 3 == 0):
-        #    updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/oogieboogie.jpg"))
-        #elif(i % 3 == 1):
-        #    updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/contemplation.jpg"))
-        #else:
-        #    updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/banner-958963__480.jpg"))
+
+        if(i % 3 == 0):
+            updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/oogieboogie.jpg"))
+        elif(i % 3 == 1):
+            updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/contemplation.jpg"))
+        else:
+            updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/banner-958963__480.jpg"))
+        updateWindow()
+
         time.sleep(1)
-    
