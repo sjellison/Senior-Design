@@ -185,33 +185,3 @@ if __name__ == '__main__':
                 
 #        finally:
 #            out.close()
-
-#Function for the camera thread to run
-#def camThread():
-#    global frameLock, sharedFrame
-#    #TODO needs to pull frames
-#    while(True):
-#        #Always want the camera to be running and getting new frames
-#        frame = cam.getFrame()
-#        
-#        # along the frame only when able
-#        if(frameLock.acquire(0)):
-#            sharedFrame = frame
-#            frameLock.release()
-            
-
-#def nnThread():
-#    global frameLock, dataLock, sharedData, sharedFrame
-#    #TODO needs to analyze frames and spit out results
-#    while(True):
-#        #blocks the thread until a frame can be acquired
-#        frameLock.acquire(1)
-#        localFrame = sharedFrame
-#        frameLock.release()
-#        
-#        localData = nn.analyze(localFrame)
-#        
-#        #forces the neural network to wait until it can  along its most recent results
-#        dataLock.acquire(1)
-#        sharedData = localData
-#        dataLock.release()

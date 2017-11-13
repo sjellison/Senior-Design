@@ -1,6 +1,6 @@
 
-#from tkinter import * #this is for Python3
-from Tkinter import *
+from tkinter import * #this is for Python3
+#from Tkinter import *
 import time
 from PIL import Image, ImageTk
 
@@ -28,6 +28,11 @@ def init():
     
     imageFrame = Frame(mainFrame)
     imageLabel = Label(imageFrame)
+    i = Image.open("C:/Users/bebop/Pictures/Saved Pictures/oogieboogie.jpg")
+    print(i)
+    p = ImageTk.PhotoImage(i)
+    print(p)
+    imageLabel.configure(image=p)
     imageLabel.pack()
     imageFrame.pack(side="left", fill="both", expand="yes", pady=10)
     
@@ -53,7 +58,6 @@ Replaces the image in the image frame with the given image
 '''
 def updateImage(img):
     global imageLabel, root
-    
     imageLabel.configure(image=img)
     imageLabel.image = img
     root.update()
@@ -116,11 +120,11 @@ if(__name__ == '__main__'):
         newText2 = "New Res Stuff" + str(i)
         updateNetText(newText1)
         updateResText(newText2)
-        if(i % 3 == 0):
-            updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/contemplation.jpg"))
-        elif(i % 3 == 1):
-            updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/project-management-2061635__480.jpg"))
-        else:
-            updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/banner-958963__480.jpg"))
+        #if(i % 3 == 0):
+        #    updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/oogieboogie.jpg"))
+        #elif(i % 3 == 1):
+        #    updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/contemplation.jpg"))
+        #else:
+        #    updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/banner-958963__480.jpg"))
         time.sleep(1)
     
