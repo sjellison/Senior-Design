@@ -119,7 +119,7 @@ Runs if this file is run as a main file. Used for debugging.
 if(__name__ == '__main__'):
     init()
 
-    for i in range(15):
+    for i in range(100):
         newText1 = "New Net Stuff" + str(i)
         newText2 = "New Res Stuff" + str(i)
         updateNetText(newText1)
@@ -134,3 +134,4 @@ if(__name__ == '__main__'):
         updateWindow()
 
         time.sleep(1)
+    root.destroy()

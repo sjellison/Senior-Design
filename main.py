@@ -5,7 +5,7 @@ import NeuralNetwork.NNModule as nn
 import Camera.Camera as cam
 import threading
 import time
-#import Debug.Debug as deb
+import Debug.Debug as deb
 import sys
 
 
@@ -101,6 +101,9 @@ class nnThread(threading.Thread):
             #else:
             #    time.sleep(2)
 
+'''
+Main Thread
+'''
 if __name__ == '__main__':
     #check for debug mode
     if(len(sys.argv) > 1):
@@ -134,8 +137,8 @@ if __name__ == '__main__':
         print("Error starting threads")
         
 #    out.init()
-#    if(debug):
-#        deb.init()
+    if(debug):
+        deb.init()
     
     count = 0
     while(True):
@@ -177,11 +180,11 @@ if __name__ == '__main__':
             
         count += 1
             
-#        if(debug):
-#           deb.printToTerm(result)
-#           deb.updateImage(frame)
-#           deb.updateNetText(list)
-#           deb.updateResText(result)
+        if(debug):
+            print("Updating windwo")
+            deb.updateImage(deb.strtoimg("Camera/img.jpg"))
+            deb.updateNetText(data)
+            deb.updateResText("Result not used")
                 
 #        finally:
 #            out.close()
