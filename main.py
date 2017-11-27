@@ -3,6 +3,7 @@
 import Output.Output as out
 import NeuralNetwork.NNModule as nn
 import Camera.Camera as cam
+#import Analysis.Analysis as an #not currently used
 import threading
 import time
 import Debug.Debug as deb
@@ -10,7 +11,7 @@ import sys
 
 
 debug = False
-
+demo = False
 sharedFrame = None
 sharedData = None
 datachanged = 0
@@ -28,25 +29,17 @@ class camThread(threading.Thread):
     def run(self):
         while(True):
             global frameLock, sharedFrame, debug, numCamIter
-            #Always want the camera to be running and getting new frames
-            #frame = cam.get_image()
-            
-            #print("Cam: Attempting framelock")
-            # along the frame only when able
+
             if(frameLock.acquire(0)):
-                #if(debug):
-                    #print("Cam: Updating frame")
+
                 numCamIter += 1
                 print("Cam: ", numCamIter)
-                #frame = cam.get_image()
-                cam.get_image()
-                #sharedFrame = frame
-                #if(debug):
-                #    print("Checking shared frame")
-                #    print(sharedFrame)
+
+                cam.get_image("Camera/img.jpg")
+
                 frameLock.release()
-                time.sleep(.5)
-                #print("Cam: framelock released")
+                time.sleep(.00001)
+
 
 #class for running the neural network thread
 class nnThread(threading.Thread):    
@@ -57,13 +50,12 @@ class nnThread(threading.Thread):
         global frameLock, dataLock, sharedData, sharedFrame, debug, datachanged, numNNIter
         while(True):
             #print("Start of NNT")
-                        
+            timeStart = time.time()
             if(debug):
                 print("NN: frameLock grab")
                 print(frameLock)
             #blocks the thread until a frame can be acquired
             frameLock.acquire(1)
-            #localFrame = sharedFrame
             localData = None
             try:
                 numNNIter += 1
@@ -71,24 +63,13 @@ class nnThread(threading.Thread):
                 if(debug):
                     print("Beginning analysis")
                 localData = nn.analyze_image("Camera/img.jpg")
-                print("Data from analysis")
-                print(localData)
+                #print("Data from analysis")
+                #print(localData)
             except:
                 print("Image not found")
-            #if(debug):
-            #    print(localFrame)
+
             frameLock.release()
-            if(debug):
-                print("NN: frameLock released")
-                print(frameLock)
-            #if(localFrame != None):
-            #   if(debug):
-            #       print("NN: Analyzing")
-            #        print(localFrame)
-                #localData = nn.analyze_image("/media/img.jpg")
-            
-            if(debug):
-                print("NN: datalock grab")
+                
             #forces the neural network to wait until it can  along its most recent results
             dataLock.acquire(1)
             if(debug):
@@ -98,6 +79,10 @@ class nnThread(threading.Thread):
             dataLock.release()
             if(debug):
                 print("NN: datalock release")
+                
+            timeEnd = time.time()
+            
+            print("Time taken for analysis: "+ str(timeEnd - timeStart))
             #else:
             #    time.sleep(2)
 
@@ -110,16 +95,19 @@ if __name__ == '__main__':
         if(str.lower(sys.argv[1]) == "debug"):
             print("--Setting mode to Debug--")
             debug = True
-     
-    if(debug):
-        #an.debug()
-        print("Initializing cam")
-    cam.init("Camera/video.mp4")
+        elif(str.lower(sys.argv[1]) == "demo"):
+            demo = True
     
-    if(debug):
-        print("Initializing Cam Thread")
-    ct = camThread()
-    
+    if(demo):
+        print("Demo mode activated. Attempting to initialize demo window...")
+        try:
+            deb.init()
+            demoInit = True
+            print("Demo window activated")
+        except:
+            print("Failed to initialize demo window")
+            demo = False
+            
     if(debug):
         print("Initializing NeuralNetwork")
     nn.__init__()
@@ -127,7 +115,15 @@ if __name__ == '__main__':
     if(debug):
         print("Initializing NN Thread")
     nnt = nnThread()
+       
+    if(debug):
+        print("Initializing cam")
+    cam.init("Camera/video.mp4")
     
+    if(debug):
+        print("Initializing Cam Thread")
+    ct = camThread()
+
     if(debug):
         print("Starting threads")
     try:
@@ -157,34 +153,20 @@ if __name__ == '__main__':
         data = sharedData
         #if(debug):
         if(datachanged == 1):
-            print("Acquired data")
-            print(data)
+            #print("Acquired data")
+            #print(data)
             datachanged = 0
-            print("--------------------")
+            if(demo):
+                deb.updateImage(deb.strtoimg("Camera/img.jpg"))
+                deb.updateNetText(data)
+                deb.updateWindow()
+            #print("--------------------")
         dataLock.release()
         olddata = data
         
-        #if(data != None):
-        #    if(debug):
-        #        print("Getting result from analysis")
-        #    result = an.getData(data)
-        #    if(debug):
-        #        print("--Printing Results--")
-        #        print(result)
-        
         #TODO Need to output the results now
-        
-        #if(debug):
-        #    print("--------------------")
-            
             
         count += 1
-            
-        if(debug):
-            print("Updating windwo")
-            deb.updateImage(deb.strtoimg("Camera/img.jpg"))
-            deb.updateNetText(data)
-            deb.updateResText("Result not used")
                 
 #        finally:
 #            out.close()

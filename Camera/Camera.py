@@ -11,17 +11,36 @@ camera = cv2.VideoCapture
 def init(port):
     global camera
     camera = cv2.VideoCapture(port)
+    while(not(camera.isOpened())):
+        pass
     
 def get_image_old():
     global camera
     retval, im = camera.read()
+    if(not(retval)):
+        print("Bad read")
+    mi = im
+    cv2.imencode('.jpg', mi)
+    if(not(cv2.imwrite("img.jpg", mi))):
+        print("Error writing image")
+    cv2.waitKey(22)
     return im
     
-def get_image():
+def get_image(dest):
     global camera
     retval, im = camera.read()
-    cv2.imwrite("Camera/img.jpg", im)
-    return cv2.imencode('.jpg', im)
+    if(retval):
+        suc, buf = cv2.imencode('.jpg', im)
+        if(suc):
+            if(not(cv2.imwrite(dest, im))):
+                print("Failed to write image")
+        else:
+            print("Failed to encode image")
+    else:
+        print("Failed to read image")
+    
+    cv2.waitKey(22)
+    return buf
     
 #convert to grayScale
 def convert(im):
@@ -34,7 +53,6 @@ def test():
     for _ in range(10000):
         im = get_image_old()
         cv2.imshow("cam-test", im)
-        cv2.waitKey(22)
     cv2.destroWindow("cam-test")
 
 if __name__ == "__main__":

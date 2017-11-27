@@ -4,25 +4,26 @@ except:
     from Tkinter import *
 
 import time
-from PIL import Image, ImageTk
+from PIL import Image, ImageTk, ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 imageWidth = 200
 imageHeight = 175
 
-root = Tk()
-mainFrame = Frame()
-imageFrame = Frame()
-imageLabel = Label()
-dataFrame = Frame()
-netTextBox = Text()
-resTextBox = Text()
+root = None
+mainFrame = None
+imageFrame = None
+imageLabel = None
+dataFrame = None
+netTextBox = None
+resTextBox = None
 
 '''
 Initializes the window to use
 '''
 def init():
     global root, mainFrame, imageFrame, imageLabel, dataFrame, netTextBox, resTextBox
-    root = Toplevel()
+    root = Tk()
     root.title("Debug Window")
     
     
@@ -31,11 +32,6 @@ def init():
     
     imageFrame = Frame(mainFrame)
     imageLabel = Label(imageFrame)
-    i = Image.open("C:/Users/bebop/Pictures/Saved Pictures/oogieboogie.jpg")
-    print(i)
-    p = ImageTk.PhotoImage(i)
-    print(p)
-    imageLabel.configure(image=p)
     imageLabel.pack()
     imageFrame.pack(side="left", fill="both", expand="yes", pady=10)
     
@@ -45,6 +41,7 @@ def init():
     resTextBox = Text(mainFrame, width=100, height=10)
     resTextBox.pack(side="bottom")
     dataFrame.pack(side="right", fill="both", expand="yes", pady=10)
+    updateWindow()
 
 '''
 Converts a path to an image
@@ -63,7 +60,6 @@ def updateImage(img):
     global imageLabel, root
     imageLabel.configure(image=img)
     imageLabel.image = img
-    #root.update()
 
 '''
 Appends the given text to the end of the network text field
