@@ -27,7 +27,7 @@ def get_image_old():
     return im
     
 def get_image(dest):
-    global camera
+    global camera, n
     retval, im = camera.read()
     if(retval):
         suc, buf = cv2.imencode('.jpg', im)

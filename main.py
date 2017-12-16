@@ -31,7 +31,6 @@ class camThread(threading.Thread):
             global frameLock, sharedFrame, debug, numCamIter
 
             if(frameLock.acquire(0)):
-
                 numCamIter += 1
                 print("Cam: ", numCamIter)
 
@@ -40,12 +39,8 @@ class camThread(threading.Thread):
                 frameLock.release()
                 time.sleep(.00001)
 
-
 #class for running the neural network thread
 class nnThread(threading.Thread):    
-    #TODO Currently, it is possible to analyze the same frame multiple times
-    #A possible solution is to make the sharedFrame = None after analysis, but
-    #that runs the risk of ignoring frames since cam is asynchronous
     def run(self):
         global frameLock, dataLock, sharedData, sharedFrame, debug, datachanged, numNNIter
         while(True):
@@ -83,8 +78,6 @@ class nnThread(threading.Thread):
             timeEnd = time.time()
             
             print("Time taken for analysis: "+ str(timeEnd - timeStart))
-            #else:
-            #    time.sleep(2)
 
 '''
 Main Thread
@@ -118,7 +111,8 @@ if __name__ == '__main__':
        
     if(debug):
         print("Initializing cam")
-    cam.init("Camera/video.mp4")
+    cam.init("Camera/drone_footage.mp4")
+    #cam.init("Camera/video.mp4")
     
     if(debug):
         print("Initializing Cam Thread")

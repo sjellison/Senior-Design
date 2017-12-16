@@ -4,11 +4,13 @@ except:
     from Tkinter import *
 
 import time
+#import pyscreenshot as pss
 from PIL import Image, ImageTk, ImageFile
 ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 imageWidth = 200
 imageHeight = 175
+#n = 0
 
 root = None
 mainFrame = None
@@ -16,15 +18,17 @@ imageFrame = None
 imageLabel = None
 dataFrame = None
 netTextBox = None
-resTextBox = None
+#resTextBox = None
 
 '''
 Initializes the window to use
 '''
 def init():
-    global root, mainFrame, imageFrame, imageLabel, dataFrame, netTextBox, resTextBox
+    global root, mainFrame, imageFrame, imageLabel, dataFrame, netTextBox
     root = Tk()
     root.title("Debug Window")
+    
+    root.geometry('+0+0')
     
     
     mainFrame = Frame(root, width=250, height=200)
@@ -36,12 +40,12 @@ def init():
     imageFrame.pack(side="left", fill="both", expand="yes", pady=10)
     
     dataFrame = Frame(mainFrame)
-    netTextBox = Text(dataFrame, width=100, height=10)
+    netTextBox = Text(dataFrame, width=26, height=1)
     netTextBox.pack(side="top")
-    resTextBox = Text(mainFrame, width=100, height=10)
-    resTextBox.pack(side="bottom")
+    #resTextBox = Text(mainFrame, width=100, height=0)
+    #resTextBox.pack(side="bottom")
     dataFrame.pack(side="right", fill="both", expand="yes", pady=10)
-    updateWindow()
+    root.update()
 
 '''
 Converts a path to an image
@@ -83,20 +87,20 @@ def updateNetText(data):
 '''
 Appends the given text to the end of the results text field
 '''
-def insertResText(text):
-    global resTextBox
-    resTextBox.insert(INSERT, text)
-    resTextBox.pack
+#def insertresText(text):
+#    global resTextBox
+#    resTextBox.insert(INSERT, text)
+#    resTextBox.pack
     #root.update()
     
 '''
 Replaces the text in the results text field with the given text
 '''
-def updateResText(result):
-    global resTextBox
-    resTextBox.delete("1.0", END)
-    resTextBox.insert(INSERT, result)
-    resTextBox.pack
+#def updateresText(result):
+#    global resTextBox
+#    resTextBox.delete("1.0", END)
+#    resTextBox.insert(INSERT, result)
+#    resTextBox.pack
     #root.update()
     
 def printToTerm(data=[]):
@@ -107,6 +111,10 @@ def printToTerm(data=[]):
 Updates the window. Shouldn't need to be called, but it's there if the need arises.
 '''
 def updateWindow():
+    global n
+    #im = pss.grab(bbox=(10,50,525,275))
+    #im.save("Debug/"+str(n)+".jpg")
+    #n += 1
     root.update()
 
 '''
@@ -119,7 +127,7 @@ if(__name__ == '__main__'):
         newText1 = "New Net Stuff" + str(i)
         newText2 = "New Res Stuff" + str(i)
         updateNetText(newText1)
-        updateResText(newText2)
+        #updateresText(newText2)
 
         if(i % 3 == 0):
             updateImage(strtoimg("C:/Users/bebop/Pictures/Saved Pictures/oogieboogie.jpg"))
